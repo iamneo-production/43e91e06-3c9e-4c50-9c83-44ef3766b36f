@@ -1,0 +1,74 @@
+/* *{
+    padding: 0;
+    margin: 0px;
+    box-sizing: border-box;
+} */
+
+#userDetails{
+    width: 75%;
+    padding: 1rem;
+    margin: 1rem auto;
+    background: transparent;
+    border: 2px solid rgb(27, 26, 26);
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border-collapse: collapse;
+    letter-spacing: 1px;
+    cursor: default;
+}
+#userDetails th[scope="col"] {
+    border: none;
+    border-bottom: 2px solid rgb(27, 26, 26);
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    text-transform: capitalize;
+    
+}
+
+#userDetails td.Field{
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0.2rem 0.8rem;
+
+}
+#userDetails td.data{
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+#userDetails #Student_Address{
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+}
+#userDetails#Student_Address tr td.data{
+    text-align: right;
+    padding: 0px 1rem;
+}
+#userDetails > tbody:nth-child(2) > tr:nth-child(12) {
+    border: 1px solid black;
+   }
+   
+
+#Edit, #Cancle {
+    margin: 0px 10px;
+    background:transparent;
+    border: 1px solid rgb(15, 15, 15);
+    padding: 7px 15px;
+    width: 20%;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    
+}
+
+#Edit:hover, #Cancle:hover{
+    /* background-color:#00b4d8 ; */
+    cursor: pointer;
+    
+}
+
+   
