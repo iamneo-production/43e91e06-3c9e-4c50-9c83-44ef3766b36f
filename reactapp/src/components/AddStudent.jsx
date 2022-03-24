@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-// import { v4 as uuidv4 } from 'uuid';
-import uniqueRandom from 'unique-random'
 import UserService from '../service/UserService';
 import '../styles/AddOrUpdateStudent.css'
 export default function AddStudent() {
     const navigate = useNavigate();
-    const[Students, setStudents] = useState([]);
+    const [Students, setStudents] = useState([]);
     const [error, setError] = React.useState(null);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -28,7 +26,6 @@ export default function AddStudent() {
         Nationality: "",
 
     })
-    const random = uniqueRandom(11111, 99999);
     const Reset = () => {
         setFirstName("");
         setLastName("");
@@ -50,20 +47,20 @@ export default function AddStudent() {
         });
     }
     useEffect(() => {
-		const getStudent = async () => {
-			UserService.getStudents().then((res) => {
-				setStudents(res.data);
-			}).catch(error => {
-				setError(error);
-			})
-		}
-		getStudent()
-	}, []);
+        const getStudent = async () => {
+            UserService.getStudents().then((res) => {
+                setStudents(res.data);
+            }).catch(error => {
+                setError(error);
+            })
+        }
+        getStudent()
+    }, []);
 
-	if (error) {
-		return (`Error ${error}`)
-	}
-   
+    if (error) {
+        return (`Error ${error}`)
+    }
+
     const onChangeAddress = (e) => {
         setAddress({ ...address, [e.target.name]: e.target.value });
     }
@@ -73,28 +70,27 @@ export default function AddStudent() {
         if (user) {
             return true
         } else {
-            
+
             return false;
         }
     }
 
     const OnhandleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (firstName === '' || lastName === '' || fatherName === '' | emailId === '' || dateOfBirth === '' || mobileNo === '' || gender === '' || motherName === '' || address.pinCode === '') {
             alert("please Fill the required fields");
             return;
         }
 
-        if(checkUser(Students)){
+        if (checkUser(Students)) {
             alert("user already exists");
             return;
         }
-        else{
+        else {
             let userDetail = { "firstName": firstName, "lastName": lastName, "fatherName": fatherName, "motherName": motherName, "emailId": emailId, "dateOfBirth": dateOfBirth, "age": age, "mobileNo": mobileNo, "alternateMobileNo": alternateMobileNo, "gender": gender, "address": address };
 
             const req = {
-                id: random(),
                 ...userDetail
             }
             console.log(req);

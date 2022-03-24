@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../styles/AdminStudent.css'
 import { useNavigate } from 'react-router-dom';
 import UserService from '../service/UserService';
-import SearchIcon from '@mui/icons-material/Search';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import DisplayUser from './DisplayUser';
+import DisplayStudent from './DisplayStudent';
 
 export default function AdminStudent(props) {
 	const [error, setError] = React.useState(null);
@@ -12,11 +10,6 @@ export default function AdminStudent(props) {
 	const [searchInput, setSearchInput] = useState('');
 	const [FilteredResults, setFilteredResults] = useState([]);
 	const navigate = useNavigate();
-
-	// const retriveStudents = async () => {
-	//     const res = await api.get("/Students");
-	//     return res.data;
-	// }
 
 	useEffect(() => {
 		const getStudent = async () => {
@@ -71,28 +64,27 @@ export default function AdminStudent(props) {
 	return (
 		<div className='DisplayUser'>
 			<h1>User Details</h1>
-			{/* <div id='search'><SearchComponent searchContactHandler={searchContactHandler} /></div> */}
 			<div id='SearchBar'>
 				<form onSubmit={searchContactHandler} className='search'>
 					<input type="search" name="search" id="search_field" placeholder="Enter Name / Id "
 						value={searchInput}
 						onChange={(e) => { setSearchInput(e.target.value) }}
 					/>
-					<abbr title="Search Students"><button type="submit"  ><SearchIcon /></button></abbr>
+					<abbr title="Search Students"><button type="submit"  >Search</button></abbr>
 				</form>
 			</div>
 			<div id="user">
-				<button id='addStudent' onClick={addStudent}><PersonAddAltIcon style={{ fontSize: "18px", paddingRight: "0.2em" }} />Add Student</button>
+				<button id='addStudent' onClick={addStudent}>Add Student</button>
 				<div id='TableScroll'>
-					{/* <table id='userData'> */}
-							{searchInput.length > 1 ?
-								
-								<DisplayUser Student={FilteredResults} deleteStudent={deleteStudent} />
 
-							:	<DisplayUser Student={Student} deleteStudent={deleteStudent} />
-							
-							}
-					{/* </table>  */}
+					{searchInput.length > 1 ?
+
+						<DisplayStudent Student={FilteredResults} deleteStudent={deleteStudent} />
+
+						: <DisplayStudent Student={Student} deleteStudent={deleteStudent} />
+
+					}
+
 				</div>
 			</div>
 

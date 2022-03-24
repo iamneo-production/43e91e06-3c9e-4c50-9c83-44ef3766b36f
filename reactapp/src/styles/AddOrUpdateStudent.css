@@ -88,23 +88,7 @@ tr td>input{
   width: 70%;
   text-transform: capitalize;
 }
-#submit{
-  background: none;
-  border: 2px solid rgb(10, 10, 10);
-  padding: 5px;
-  font-size: 20px;
-  width: 40%;
-  margin-right: 20px;
 
-   
-}
-#cancle{
-    background: none;
-    border: 2px solid rgb(10, 10, 10);
-    padding: 5px;
-    font-size: 20px;
-    width: 40%;
-  }
 
 h2{
   font-size: 24px;
@@ -187,4 +171,28 @@ div.textbox:nth-child(4) > input:nth-child(1) {
 }
 :placeholder-shown{
   text-transform: capitalize;
+}
+#submit,#cancle{
+  margin: 0px 10px;
+  background:transparent;
+  border: 1px solid rgb(15, 15, 15);
+  padding: 7px 15px;
+  width: 20%;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: rgba(247, 241, 241, 0.87);
+  background-color: #000;
+
+   
+}
+#edit:hover, #cancle:hover{
+  /* background-color:#00b4d8 ; */
+  cursor: pointer;
+  
+}
+#edit:active, #cancle:active{
+  color: #000;
+  background: transparent;
+  border: 2px solid rgb(15, 15, 15);
 }

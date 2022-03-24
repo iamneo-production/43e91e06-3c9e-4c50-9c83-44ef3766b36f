@@ -1,4 +1,4 @@
-import axios from "axios";
+//import axios from "axios";
 import api from '../api/User';
 class UserSetvice{
 
@@ -17,7 +17,8 @@ class UserSetvice{
         return api.put(`/Students/${id}`,student);
     }
     deleteStudent(id){
-        return axios.delete("http://localhost:3006/Students/"+id);
+        
+        return api.delete(`/Students/${id}`);
     }
 
 }

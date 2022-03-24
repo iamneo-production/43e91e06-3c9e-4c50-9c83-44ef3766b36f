@@ -5,11 +5,11 @@ export default function SearchComponent(props) {
   const [search, setSearch] = useState('');
   const Search = (e) => {
     e.preventDefault();
-    if(search===""){
+    if (search === "") {
       alert("enter Id / Name");
       return
     }
-    props.searchContactHandler(search);
+    props.searchHandler(search);
     setSearch('');
   }
 
