@@ -1,0 +1,25 @@
+{
+  "User": [
+    {
+      "username": "sourav",
+      "email": "sourav@gmail.com",
+      "password": "147852369",
+      "userrole": "User",
+      "id": 1
+    },
+    {
+      "username": "",
+      "email": "",
+      "password": "",
+      "userrole": "",
+      "id": 2
+    },
+    {
+      "username": "somesh",
+      "email": "somesht@virtusa.com",
+      "password": "111",
+      "userrole": "",
+      "id": 3
+    }
+  ]
+}
