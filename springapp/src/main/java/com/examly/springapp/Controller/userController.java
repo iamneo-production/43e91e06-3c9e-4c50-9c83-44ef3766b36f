@@ -1,4 +1,4 @@
-package com.example.SpringBoot.Controller;
+package com.examly.springapp.Controller;
 
 import java.util.List;
 

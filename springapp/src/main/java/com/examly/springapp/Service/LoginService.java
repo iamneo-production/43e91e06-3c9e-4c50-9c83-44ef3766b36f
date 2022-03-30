@@ -1,4 +1,5 @@
-package com.example.SpringBoot.Service;
+
+package com.examly.springapp.Service;
 
 import java.util.Optional;
 

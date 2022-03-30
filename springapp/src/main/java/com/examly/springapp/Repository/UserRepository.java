@@ -1,4 +1,5 @@
-package com.example.SpringBoot.Repository;
+
+package com.examly.springapp.Repository;
 
 import java.util.Optional;
 

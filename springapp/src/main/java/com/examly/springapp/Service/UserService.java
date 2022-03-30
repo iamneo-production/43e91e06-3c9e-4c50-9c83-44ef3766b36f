@@ -1,4 +1,4 @@
-package com.example.SpringBoot.Service;
+package com.examly.springapp.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +38,11 @@ public User getuserById(int id) {
 	return u.get();
 }
 
-public User getUserById(int id) {
-	Optional <User> u=repo.findById(id);
-	return u.get();
+// public User getUserById(int id) {
+// 	Optional <User> u=repo.findById(id);
+// 	return u.get();
 	
-}
+// }
 
 public User UpdateById(User u) {
 	if(getUserById(u.getId())==null) {
