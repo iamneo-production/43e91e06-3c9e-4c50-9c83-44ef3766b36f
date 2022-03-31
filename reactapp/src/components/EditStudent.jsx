@@ -7,7 +7,6 @@ export default function EditStudent(props) {
     const param = useParams();
     const navigate = useNavigate();
     const [error, setError] = React.useState(null);
-    //const [Student,setStudent] = useState([]);
     const id = param.id;
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -74,8 +73,8 @@ export default function EditStudent(props) {
                     Nationality: student.address.Nationality
                 })
 
-            }).catch(error => {
-                setError(error);
+            }).catch(Error => {
+                setError(Error);
             })
         }
         getStudent()
