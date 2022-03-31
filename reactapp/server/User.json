@@ -1,0 +1,67 @@
+{
+  "Students": [
+    {
+      "id": 86556,
+      "firstName": "Soumik",
+      "lastName": "Sarkar",
+      "fatherName": "Arpan Sarkar",
+      "motherName": "Soma Sarkar",
+      "emailId": "ss1906617@gmail.com",
+      "dateOfBirth": "2000-05-10",
+      "age": "22",
+      "mobileNo": "8942895366",
+      "alternateMobileNo": "8697307335",
+      "gender": "Male",
+      "address": {
+        "houseNo": "4/175",
+        "streetName": "Gayeshpur",
+        "areaName": "Gayeshpur",
+        "pinCode": "741234",
+        "state": "West Bengal",
+        "Nationality": "Indian"
+      }
+    },
+    {
+      "id": 54494,
+      "firstName": "Saikat ",
+      "lastName": "Sarkar",
+      "fatherName": "Shamol Sarkar",
+      "motherName": "Shalini sarkar",
+      "emailId": "saikatSarkar123@gmail.com",
+      "dateOfBirth": "",
+      "age": "20",
+      "mobileNo": "5623485602",
+      "alternateMobileNo": "8963215478",
+      "gender": "Male",
+      "address": {
+        "houseNo": "1234/856",
+        "streetName": "DL-Roy Street",
+        "areaName": "Kolkata",
+        "pinCode": "700000-31",
+        "state": "West Bengal",
+        "Nationality": "Indian"
+      }
+    },
+    {
+      "id": 85822,
+      "firstName": "Suman ",
+      "lastName": "Modak",
+      "fatherName": "Sudhir Modak",
+      "motherName": "Anjali Modak",
+      "emailId": "SumanModak@gmail.com",
+      "dateOfBirth": "1985-05-10",
+      "age": "37",
+      "mobileNo": "89456123074",
+      "alternateMobileNo": "+918947452314",
+      "gender": "Male",
+      "address": {
+        "houseNo": "Nrishingapur",
+        "streetName": "Nrisinghapur raotara road",
+        "areaName": "Nrishighapur",
+        "pinCode": "741103",
+        "state": "West Bengal",
+        "Nationality": "Indian"
+      }
+    }
+  ]
+}
