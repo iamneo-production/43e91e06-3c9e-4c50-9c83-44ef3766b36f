@@ -70,11 +70,11 @@ export default function AdminStudent(props) {
 						value={searchInput}
 						onChange={(e) => { setSearchInput(e.target.value) }}
 					/>
-					<abbr title="Search Students"><button type="submit"  >Search</button></abbr>
+					<abbr title="Search Students"><button type="submit"  ><i class="fa-solid fa-magnifying-glass"></i></button></abbr>
 				</form>
 			</div>
 			<div id="user">
-				<button id='addStudent' onClick={addStudent}>Add Student</button>
+				<button id='addStudent' onClick={addStudent}><i class="fa-solid fa-user-plus" style={{fontSize:"1.5rem",marginRight:"0.2rem"}} ></i>Add Student</button>
 				<div id='TableScroll'>
 
 					{searchInput.length > 1 ?

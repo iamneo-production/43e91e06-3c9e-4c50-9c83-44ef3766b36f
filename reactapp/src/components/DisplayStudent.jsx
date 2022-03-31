@@ -41,9 +41,9 @@ export default function DisplayStudent(props) {
                             <td>{Student.emailId}</td>
                             <td>{Student.enrolledCourse}</td>
                             <td>{Student.mobileNo}</td>
-                            <td><abbr title='Update Student' ><button onClick={() => editStudent(Student.id)}>Edit</button></abbr>
-                                <abbr title="Delete Student"><button onClick={() => DeleteHandler(Student.id)}> Delete </button></abbr>
-                                <abbr title="View Details"><button onClick={() => viewStudent(Student.id)} > Details </button></abbr>
+                            <td><abbr title='Update Student' ><button onClick={() => editStudent(Student.id)}><i class="fa-solid fa-pen-to-square" style={{fontSize:"1rem"}}></i></button></abbr>
+                                <abbr title="Delete Student"><button onClick={() => DeleteHandler(Student.id)}><i class="fa-solid fa-trash-can" style={{fontSize:"1rem"}}></i> </button></abbr>
+                                <abbr title="View Details"><button onClick={() => viewStudent(Student.id)} ><i class="fa-solid fa-info" style={{fontSize:"1rem"}}></i></button></abbr>
                             </td>
                         </tr>
                     ))}
