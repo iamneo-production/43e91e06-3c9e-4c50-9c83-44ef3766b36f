@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import '../components/Login.css';
 import {Link, useNavigate} from 'react-router-dom';
-import api from '../Service/LoginService';
-import LoginService from '../Service/LoginService';
+// import api from '../Service/LoginService';
+// import LoginService from '../Service/LoginService';
 function Login() {
   const Navigate=useNavigate();
   const[email,setEmail]=useState("")
@@ -23,7 +23,7 @@ function Login() {
     if (password===data.password){
         alert("Login Succesfull");
         if(data.userrole==="Admin"){
-        Navigate("/Admin/Dashboard")
+        Navigate("/admin/student")
         }
         if(data.userrole==="User"){
           Navigate("/User/Dashboard")
