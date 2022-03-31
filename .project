@@ -3,8 +3,12 @@
 <<<<<<< HEAD
 	<name>iamneo-production_43e91e06-3c9e-4c50-9c83-44ef3766b36f</name>
 =======
+<<<<<<< HEAD
+	<name>iamneo-production_43e91e06-3c9e-4c50-9c83-44ef3766b36f</name>
+=======
 	<name>SignUp</name>
 >>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
 	<comment></comment>
 	<projects>
 	</projects>
@@ -21,12 +25,15 @@
 		</buildCommand>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 		<buildCommand>
 			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 >>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
@@ -35,7 +42,13 @@
 <<<<<<< HEAD
 	<filteredResources>
 		<filter>
+			<id>1648475929189</id>
+=======
+<<<<<<< HEAD
+	<filteredResources>
+		<filter>
 			<id>1648013931087</id>
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
 			<name></name>
 			<type>30</type>
 			<matcher>
@@ -44,6 +57,9 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
 </projectDescription>
