@@ -6,6 +6,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
@@ -40,5 +48,17 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/Users/shivs/.m2/repository/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar" sourcepath="C:/Users/shivs/.m2/repository/org/dom4j/dom4j/2.1.3/dom4j-2.1.3-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.dom4j"/>
+			<attribute name="maven.artifactId" value="dom4j"/>
+			<attribute name="maven.version" value="2.1.3"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

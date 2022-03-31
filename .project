@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>iamneo-production_43e91e06-3c9e-4c50-9c83-44ef3766b36f</name>
+=======
+	<name>SignUp</name>
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
 	<comment></comment>
 	<projects>
 	</projects>
@@ -15,11 +19,20 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+<<<<<<< HEAD
+=======
+		<buildCommand>
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
+<<<<<<< HEAD
 	<filteredResources>
 		<filter>
 			<id>1648013931087</id>
@@ -31,4 +44,6 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+=======
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
 </projectDescription>
