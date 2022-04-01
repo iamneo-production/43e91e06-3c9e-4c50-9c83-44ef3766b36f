@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Pages/HomePage/Home';
 import LoginPageAdmin from './Pages/Admin/LoginPageAdmin';
@@ -30,16 +31,42 @@ import EnrollCourse from './Pages/User/EnrollCourse';
 import AddStudent from './Pages/Admin/AddStudentAdmin';
 import MoreInfoUser from './Pages/User/MoreInfoUser';
 
-
+=======
+import React from 'react';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from './components/Dashboard';
+import User from './components/User';
+import AddUser from './components/AddStudent';
+import AdminStudent from './components/AdminStudent';
+import DisplayStudent from './components/DisplayStudent';
+import EditStudent from './components/EditStudent';
+import ViewStudent from './components/ViewStudent';
+>>>>>>> 803ad88aa1ffbe56fb9011b0af8ca3c021c700bc
 
 function App() {
   return (
     <BrowserRouter>
       <div >
         <Routes>
+<<<<<<< HEAD
           <Route path='/' element={<Home />} />
           <Route path="/admin/login" element={<LoginPageAdmin />} />
           <Route path='/admin/signup' element={<SignupAdmin />} />
+=======
+          <Route exact path='/admin/student' element={<AdminStudent />} />
+          <Route exact path='/admin/viewStudent' element={<DisplayStudent />} ></Route>
+          <Route exact path='/admin/addStudent' element={<AddUser />} />
+          <Route exact path='/admin/editStudent/:id' element={<EditStudent />} />
+          <Route exact path='/admin/viewDetailsStudent/:id' element={<ViewStudent />} />
+          <Route exact path="/" element={<Login></Login>} />
+          <Route exact path="/Signup" element={<Signup></Signup>} />
+          <Route exact path="/Admin/Dashboard" element={<Dashboard />} />
+          <Route exact path="/User/Dashboard" element={<User />} />
+        </Routes>
+      </BrowserRouter>
+>>>>>>> 803ad88aa1ffbe56fb9011b0af8ca3c021c700bc
 
 
 
