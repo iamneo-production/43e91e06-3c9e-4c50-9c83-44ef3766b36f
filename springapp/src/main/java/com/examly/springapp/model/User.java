@@ -1,85 +1,131 @@
 package com.examly.springapp.model;
 
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+
+@Table(name= "users" )
 @Entity
-@Table(name="signup")
-public class User{
+public class User implements UserDetails{
+	
 	@Id
-	@GeneratedValue
-	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
+	
 	private String username;
-	private String email;
+	
 	private String password;
-	private String confirmpassword;
-	private String mobilenumber;
-	private String userrole;
-	public int getId() {
+	
+	private String email;
+	
+	private String phonenumber;
+	
+	private boolean enabled=true;
+	
+	
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinTable(name = "AUTH_USER_AUTHORITY", joinColumns = @JoinColumn(referencedColumnName = "id"),inverseJoinColumns = @JoinColumn(referencedColumnName ="id"))
+	private List<Authority> authorities;
+	
+	
+	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return authorities;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return this.password;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return this.username;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return this.enabled;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return this.enabled;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return this.enabled;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return this.enabled;
+	}
+
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getPhonenumber() {
+		return phonenumber;
 	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getConfirmpassword() {
-		return confirmpassword;
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
 	}
-	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword;
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
-	public String getMobilenumber() {
-		return mobilenumber;
-	}
-	public void setMobilenumber(String mobilenumber) {
-		this.mobilenumber = mobilenumber;
-	}
-	public String getUserrole() {
-		return userrole;
-	}
-	public void setUserrole(String userrole) {
-		this.userrole = userrole;
-	}
-	public User(int id, String username, String email, String password, String confirmpassword, String mobilenumber,
-			String userrole) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.email = email;
-		this.password = password;
-		this.confirmpassword = confirmpassword;
-		this.mobilenumber = mobilenumber;
-		this.userrole = userrole;
-	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ ", confirmpassword=" + confirmpassword + ", mobilenumber=" + mobilenumber + ", userrole=" + userrole
-				+ "]";
-	}
+	
+	
 	
 	
 	
