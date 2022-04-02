@@ -28,6 +28,7 @@ import SignupPageAdminRe from './Pages/Admin/SignupPageAdminRe';
 import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
 import SignupPageUserRed2 from './Pages/User/SignupPageUserRed2';
 import EnrollCourse from './Pages/User/EnrollCourse';
+import AddStudentAdmin from './Pages/Admin/AddStudentAdmin'
 
 
 
@@ -60,6 +61,7 @@ function App() {
             <Route path="/admin/addCourse" element={<AddCourseAdmin/>}/>
             <Route path="/admin/profile" element={<ProfileAdmin/>}/>
             <Route path="/admin/news" element={<NewsAdmin/>}/>
+            <Route path="/admin/addStudent" element={<AddStudentAdmin/>}/>
             <Route path="/admin/studentadmin" element={<StudentAdmin/>}/>
             <Route path="/admin/moreinfo" element={<MoreInfoAdmin/>}/>
 

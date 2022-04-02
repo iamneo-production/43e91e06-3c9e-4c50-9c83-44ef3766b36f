@@ -1,4 +1,4 @@
-<<<<<<< HEAD:reactapp/src/Pages/Login.js
+
 import React, { useEffect, useState } from 'react'
 import '../components/Login.css';
 import {Link, useNavigate} from 'react-router-dom';
@@ -88,7 +88,6 @@ function Login() {
 }
 
 export default Login
-=======
 import React, { useEffect, useState } from 'react'
 import '../components/Login.css';
 import {Link, useNavigate} from 'react-router-dom';
@@ -169,5 +168,4 @@ function Login() {
   )
 }
 
-export default Login
->>>>>>> 803ad88aa1ffbe56fb9011b0af8ca3c021c700bc:reactapp/src/components/Login.js
+

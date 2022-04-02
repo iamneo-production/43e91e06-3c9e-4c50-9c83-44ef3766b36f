@@ -72,7 +72,6 @@ export const StudentAdmin = (props) => {
             </div>
 
 
-            <div>
             <table id='userData' sx={{ minWidth: 700 }}>
                 <thead>
                     <tr>
@@ -84,9 +83,8 @@ export const StudentAdmin = (props) => {
                         <th scope='col' >Action </th>
                     </tr>
                 </thead>
-                
+
             </table>
-        </div>
 
             
 
