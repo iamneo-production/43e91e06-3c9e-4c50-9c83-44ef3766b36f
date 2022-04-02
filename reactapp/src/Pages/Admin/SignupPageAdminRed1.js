@@ -17,7 +17,7 @@ function SignupPageAdminRed1() {
 
         const addAuthentication = { roleCode, roleDescription }
         console.log(addAuthentication)
-        fetch("http://localhost:8080/users/addAuthority", {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuthority", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addAuthentication)

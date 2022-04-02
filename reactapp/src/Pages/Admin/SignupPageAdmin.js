@@ -25,7 +25,7 @@ const SignPageAdmin = ({loading, error, ...props})=> {
         e.preventDefault()
         const addUser = { username, email, password, phonenumber, enabled }
         console.log(addUser)
-        fetch("http://localhost:8080/users/addUser", {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addUser", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addUser)
