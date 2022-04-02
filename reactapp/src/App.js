@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './Pages/HomePage/Home';
-import LoginPageAdmin from './Pages/Admin/LoginPageAdmin';
-import LoginPageUser from './Pages/User/LoginPageUser';
-import SignupAdmin from './Pages/Admin/SignupPageAdmin';
-import SignupUser from './Pages/User/SignupPageUser';
-import AuthAdmin from './Pages/Admin/AuthenticateAdmin';
-import AuthUser from './Pages/User/AuthenticateUser';
-import SignupPageAdminRed1 from './Pages/Admin/SignupPageAdminRed1';
-import DashboardAdmin from './Pages/Admin/DashboardAdmin';
-import StudentAdmin from './Pages/Admin/StudentAdmin';
-import CourseAdmin from './Pages/Admin/CourseAdmin';
-import DashboardUser from './Pages/User/DashboardUser';
-import NewsAdmin from './Pages/Admin/NewsAdmin'
-import AcademyAdmin from './Pages/Admin/AcademyAdmin';
-import AddInstituteAdmin from './Pages/Admin/AddInstituteAdmin'
-import ProfileAdmin from './Pages/Admin/ProfileAdmin';
-import InstituteUser from './Pages/User/InstituteUser';
-import ProfileUser from './Pages/User/ProfileUser';
-import NewsUser from './Pages/User/NewsUser';
-import Help from './Pages/User/Help&Support';
-import AddCourseAdmin from './Pages/Admin/AddCourseAdmin';
-import ProtectedRoute from './ProtectedRoute';
-import ProtectedRouteUser from './ProtectedRouteUser';
-import MoreInfoAdmin from './Pages/Admin/MoreInfoAdmin';
-import SignupPageAdminRe from './Pages/Admin/SignupPageAdminRe';
-import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
-import SignupPageUserRed2 from './Pages/User/SignupPageUserRed2';
-import EnrollCourse from './Pages/User/EnrollCourse';
-import AddStudent from './Pages/Admin/AddStudentAdmin';
-import MoreInfoUser from './Pages/User/MoreInfoUser';
-
-=======
 import React from 'react';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -43,18 +9,12 @@ import AdminStudent from './components/AdminStudent';
 import DisplayStudent from './components/DisplayStudent';
 import EditStudent from './components/EditStudent';
 import ViewStudent from './components/ViewStudent';
->>>>>>> 803ad88aa1ffbe56fb9011b0af8ca3c021c700bc
 
 function App() {
   return (
     <BrowserRouter>
       <div >
         <Routes>
-<<<<<<< HEAD
-          <Route path='/' element={<Home />} />
-          <Route path="/admin/login" element={<LoginPageAdmin />} />
-          <Route path='/admin/signup' element={<SignupAdmin />} />
-=======
           <Route exact path='/admin/student' element={<AdminStudent />} />
           <Route exact path='/admin/viewStudent' element={<DisplayStudent />} ></Route>
           <Route exact path='/admin/addStudent' element={<AddUser />} />
@@ -64,9 +24,8 @@ function App() {
           <Route exact path="/Signup" element={<Signup></Signup>} />
           <Route exact path="/Admin/Dashboard" element={<Dashboard />} />
           <Route exact path="/User/Dashboard" element={<User />} />
-        </Routes>
-      </BrowserRouter>
->>>>>>> 803ad88aa1ffbe56fb9011b0af8ca3c021c700bc
+        
+      
 
 
 
