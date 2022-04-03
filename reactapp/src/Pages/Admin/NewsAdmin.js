@@ -51,7 +51,7 @@ export const Dashboard=(props)=>{
     <ReactBootStarp.Nav>
       <ReactBootStarp.NavDropdown title="More Info" id="collasible-nav-dropdown">
         <ReactBootStarp.NavDropdown.Item href="/admin/Profile">Profile</ReactBootStarp.NavDropdown.Item>
-        <ReactBootStarp.NavDropdown.Item href="#action/3.3">About</ReactBootStarp.NavDropdown.Item>
+        <ReactBootStarp.NavDropdown.Item href="/admin/moreinfo">About</ReactBootStarp.NavDropdown.Item>
         <ReactBootStarp.NavDropdown.Divider />
         <ReactBootStarp.NavDropdown.Item onClick={() =>logOut()}>LogOut</ReactBootStarp.NavDropdown.Item>
         </ReactBootStarp.NavDropdown>
