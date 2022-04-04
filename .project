@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+<<<<<<< HEAD
+	<name>iamneo-production_43e91e06-3c9e-4c50-9c83-44ef3766b36f</name>
+=======
+<<<<<<< HEAD
+	<name>iamneo-production_43e91e06-3c9e-4c50-9c83-44ef3766b36f</name>
+=======
+	<name>SignUp</name>
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+		<buildCommand>
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+<<<<<<< HEAD
+	<filteredResources>
+		<filter>
+			<id>1648475929189</id>
+=======
+<<<<<<< HEAD
+	<filteredResources>
+		<filter>
+			<id>1648013931087</id>
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.core.resources.regexFilterMatcher</id>
+				<arguments>node_modules|.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 6595848161b85fb8810c372689df823ecdb6fb46
+>>>>>>> 0593b88b152d583c9cf4ca8623daf5ba596e62b1
+</projectDescription>
