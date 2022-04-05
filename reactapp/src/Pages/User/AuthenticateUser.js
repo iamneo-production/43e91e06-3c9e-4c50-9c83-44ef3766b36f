@@ -49,7 +49,7 @@ function AuthenticateUser(){
 
         
             <div className='auth'>
-                {data && data.roles && data.roles.filter(value => value.roleCode==='USER'||value.roleCode==='ADMIN').length>0 && <Button onClick={handleSubmit} type="variant">Start :)</Button> }
+                {data && data.roles && data.roles.filter(value => value.roleCode==='USER'||value.roleCode==='ADMIN').length>0 && <Button className="custom-btn btn-5" onClick={handleSubmit} type="variant">Start :)</Button> }
             </div>
         </div>
     )

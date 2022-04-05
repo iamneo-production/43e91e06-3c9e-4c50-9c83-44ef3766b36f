@@ -36,7 +36,7 @@ const SignPageAdmin = ({loading, error, ...props})=> {
                
             }
             if(res.ok){
-                usenavigate("/admin/signupredirect1")
+                usenavigate("/admin/signupredirect1/"+username)
                 sessionStorage.setItem("loggedIn","admin");
                 console.log("New User Added")
             }

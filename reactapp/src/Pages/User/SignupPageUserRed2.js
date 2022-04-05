@@ -1,11 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import { useEffect } from "react";
+import '../Admin/MoreInfo.css'
+import { useParams } from "react-router-dom";
+import SignupService from "../Admin/SignupPageService";
 
 function SignupPageAdminRe() {
     const usenavigate = useNavigate();
-    const [authorities_id] = useState('2')
+    const[id,setId] = useState('')
+    const {username} = useParams()
 
+    console.log(id)
+    console.log(username)
 
+    let authorities_id = id
+	console.log(authorities_id)
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -23,12 +32,23 @@ function SignupPageAdminRe() {
 
 
 
+    useEffect(()=>{
+        SignupService.findByUser(username).then((response)=>{
+            setId(response.data.id)
+            console.log(id)
+            
+        }).catch(error=>{
+            console.log(error)
+        })
+    },[])
 
+
+    
     return (
         <div className="area">
-            <br></br>
-            <div className='App'>Click The button to Complete The Last Remaining Step</div>
-            <button className="custom-btn btn-6" onClick={handleClick}>Hlo</button>
+        <br></br>
+            <div className='App'>Click The button to Complete The Last Step</div>
+            <button className="custom-btn btn-6" onClick={handleClick}><span>Click Me</span></button>
             <div class="boat">
                 <div class="wrap">
                     <div class="main">

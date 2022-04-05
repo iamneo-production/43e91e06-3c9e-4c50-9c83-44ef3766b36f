@@ -1,10 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import './MoreInfo.css'
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import SignupService from "./SignupPageService";
 
 function SignupPageAdminRe() {
     const usenavigate = useNavigate();
-    const [authorities_id] = useState('1')
+    const[id,setId] = useState('')
+    const {username} = useParams()
+
+    console.log(id)
+    console.log(username)
+
+    let authorities_id = id
+	console.log(authorities_id)
+
     const handleClick = (e) => {
         e.preventDefault()
         const addAuth = { authorities_id }
@@ -18,6 +29,21 @@ function SignupPageAdminRe() {
         })
         usenavigate("/admin/login")
     }
+
+
+
+    useEffect(()=>{
+        SignupService.findByUser(username).then((response)=>{
+            setId(response.data.id)
+            console.log(id)
+            
+        }).catch(error=>{
+            console.log(error)
+        })
+    },[])
+
+
+    
     return (
         <div className="area">
         <br></br>
