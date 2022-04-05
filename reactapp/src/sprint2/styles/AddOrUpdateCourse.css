@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:Poppins;
+  
+} */
+
+
+.body {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  text-align: center;
+  justify-content: center;
+  /* align-items: center; */
+  height: 100mv;
+  
+ }
+
+ #std{
+  margin-top:40px ;
+  margin-bottom:10px ;
+  
+}
+ 
+#std input{
+  padding: 5px;
+  margin: 5px;
+  background: transparent;
+  color: black;
+  border: none;
+  /* border-bottom: 2px solid black; */
+  border-collapse: collapse;
+  outline: none;
+}
+.input4{
+  border: 2px solid rgb(7, 7, 7);
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0px;
+}
+.input1{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#Gen{
+  border: none;
+  width: 100%;
+  border-bottom: 2px solid black;
+
+}
+.Gender{
+  width: 40%;
+  padding: 2px ;
+  background: transparent;
+  border: none;
+}
+.input1,.input2,.input3{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.textbox{
+  border :none;
+  border-bottom: 2px solid black;
+  text-align: start;
+  margin-top:10px ;
+  margin: 1px auto;
+  width: 30%;
+  overflow: hidden;
+}
+
+table#addrInput {
+  margin: 0 auto;
+  /* box-sizing: border-box; */
+  cursor:default;
+  text-align: start;/*the text in the other two columns is centered*/
+  border-spacing: 5px 0.8rem;
+}
+tr td>input{
+  border-bottom: 2px solid black;
+  width: 70%;
+  text-transform: capitalize;
+}
+#submit{
+  background: none;
+  border: 2px solid rgb(10, 10, 10);
+  padding: 5px;
+  font-size: 20px;
+  width: 40%;
+  margin-right: 20px;
+
+   
+}
+#cancle{
+    background: none;
+    border: 2px solid rgb(10, 10, 10);
+    padding: 5px;
+    font-size: 20px;
+    width: 40%;
+  }
+
+h2{
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+
+#houseNo,#streetName, #areaName, #pincode, #state, #nationality {
+  padding: 5px;
+  margin: 5px;
+  background: transparent;
+  color: black;
+  border: none;
+  border-bottom: 2px solid black;
+  border-collapse: collapse;
+  outline: none;
+}
+#editHouseNo,#editStreetName, #editAreaName, #editPincode, #editState, #editNationality{
+  padding: 5px;
+  margin: 5px;
+  background: transparent;
+  color: black;
+  border: none;
+  border-bottom: 2px solid black;
+  border-collapse: collapse;
+  outline: none;
+}
+
+
+/* Element | http://localhost:3000/admin/addStudent */
+
+#std {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
+.input1 {
+  width: 100%;
+}
+
+.input2 {
+  width: 100%;
+}
+
+
+.input3 {
+  width: 100%;
+}
+.input1 > div:nth-child(n) > input:nth-child(n) {
+  width: 100%;
+ }
+ .input2 > div:nth-child(n) > input:nth-child(n){
+   width: 100%;
+ }
+ .input3 > div:nth-child(3) > input:nth-child(1) {
+  width: 100%;
+  overflow: hidden;
+ }
+
+.input3 > div:nth-child(1) > input:nth-child(1) {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+div.textbox:nth-child(4) > input:nth-child(1) {
+  width: 100%;
+  overflow: hidden;
+}
+
+.input4 > table:nth-child(2) {
+  text-align: end;
+  width: 100%;
+}
+:placeholder-shown{
+  text-transform: capitalize;
+}

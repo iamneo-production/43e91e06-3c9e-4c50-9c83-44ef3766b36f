@@ -1,0 +1,58 @@
+
+::-webkit-scrollbar{
+    width: 0%;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    width: 40%;
+  }
+  .price {
+    color: grey;
+    font-size: 0.8rem;
+  }
+  
+  .card #btn button {
+    border: none;
+    outline: 0;
+    padding: 0.2rem;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0.5rem auto;
+    border-radius: 0.5rem;
+  }
+  .card #btn button:hover {
+    opacity: 0.7;
+  }
+
+.active{
+    text-decoration: underline;
+}
+button:hover, a:hover {
+  opacity: 0.7;
+}
+  
+#ShowCourse{
+  display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+#btn{
+  display: flex;
+  justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0.2rem auto;
+}
