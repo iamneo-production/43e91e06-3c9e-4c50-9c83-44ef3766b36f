@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import './MoreInfo.css'
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SignupService from "./SignupPageService";
 
 function SignupPageAdminRe() {
     const usenavigate = useNavigate();

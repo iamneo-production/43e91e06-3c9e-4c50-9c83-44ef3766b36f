@@ -1,6 +1,9 @@
 import React from 'react'
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import SignupService from './SignupPageService';
 import './MoreInfo.css'
 import '../../App.css'
 
