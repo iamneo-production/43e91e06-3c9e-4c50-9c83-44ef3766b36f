@@ -8,7 +8,7 @@ import '../Admin/MoreInfo.css'
 import '../../App.css'
 
 
-function SignupPageAdminRed1() {
+function SignupPageUserRed1() {
     const usenavigate = useNavigate();
     const [roleCode] = useState('USER')
     const [roleDescription] = useState('USER')
@@ -108,4 +108,4 @@ function SignupPageAdminRed1() {
     )
 }
 
-export default SignupPageAdminRed1
+export default SignupPageUserRed1;

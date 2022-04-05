@@ -5,7 +5,7 @@ import '../Admin/MoreInfo.css'
 import { useParams } from "react-router-dom";
 import SignupService from "../Admin/SignupPageService";
 
-function SignupPageAdminRe() {
+function SignupPageUserRe() {
     const usenavigate = useNavigate();
     const[id,setId] = useState('')
     const {username} = useParams()
@@ -96,4 +96,4 @@ function SignupPageAdminRe() {
     )
 }
 
-export default SignupPageAdminRe
+export default SignupPageUserRe

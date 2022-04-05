@@ -3,7 +3,6 @@ import Home from './Pages/HomePage/Home';
 import LoginPageAdmin from './Pages/Admin/LoginPageAdmin';
 import LoginPageUser from './Pages/User/LoginPageUser';
 import SignupAdmin from './Pages/Admin/SignupPageAdmin';
-import SignupUser from './Pages/User/SignupPageUser';
 import AuthAdmin from './Pages/Admin/AuthenticateAdmin';
 import AuthUser from './Pages/User/AuthenticateUser';
 import SignupPageAdminRed1 from './Pages/Admin/SignupPageAdminRed1';
@@ -25,10 +24,11 @@ import ProtectedRouteUser from './ProtectedRouteUser';
 import MoreInfoAdmin from './Pages/Admin/MoreInfoAdmin';
 import MoreInfoUser from './Pages/User/MoreInfoUser'
 import SignupPageAdminRe from './Pages/Admin/SignupPageAdminRe';
-import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
-import SignupPageUserRed2 from './Pages/User/SignupPageUserRed2';
 import EnrollCourse from './Pages/User/EnrollCourse';
 import AddStudentAdmin from './Pages/Admin/AddStudentAdmin'
+import SignupPageUser from './Pages/User/SignupPageUser';
+import SignupPageUserRe from './Pages/User/SignupPageUserRed2';
+import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
 
 
 
@@ -46,9 +46,9 @@ function App() {
           
 
           <Route path="/user/login" element={<LoginPageUser/>}/>
-          <Route path='/user/signup' element={<SignupUser/>}/>
+          <Route path='/user/signup' element={<SignupPageUser/>}/>
           <Route path='/user/signupredirect1/:username' element={<SignupPageUserRed1/>}/>
-          <Route path='/user/signupredirect2/:username' element={<SignupPageUserRed2/>}/>
+          <Route path='/user/signupredirect2/:username' element={<SignupPageUserRe/>}/>
 
           <Route path="/user/Authentication" element={<AuthUser/>}/>
           

@@ -15,9 +15,9 @@ export const userLogin=(authRequest)=>{
 
 export const fetchUserData=(authRequest)=>{
     return axios({
-        method:'GET',
-        url:`${process.env.hostUrl||'https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io'}/api/v1/auth/userinfo`,
-        headers:{
+        'method':'GET',
+        'url':`${process.env.hostUrl||'https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io'}/api/v1/auth/userinfo`,
+        'headers':{
             'Authorization':'Bearer '+getToken()
         }
     })

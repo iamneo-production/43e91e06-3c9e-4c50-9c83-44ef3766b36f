@@ -19,7 +19,7 @@ function Home() {
             </ul>
             <ReactBootStarp.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <ReactBootStarp.Container>
-                    <ReactBootStarp.Navbar.Brand href="/">PG Admission Portal</ReactBootStarp.Navbar.Brand>
+                    <ReactBootStarp.Navbar.Brand href="/">PhD Admission Portal</ReactBootStarp.Navbar.Brand>
                     <ReactBootStarp.Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStarp.Nav className="me-auto">
