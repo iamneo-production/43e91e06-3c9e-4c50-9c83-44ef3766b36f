@@ -5,8 +5,9 @@ import '../Style.css';
 
 
 export const getFakeLogin=()=>{
-  return( sessionStorage.getItem("loggedIn")==="signup"?true:false)
+    return( sessionStorage.getItem("loggedIn")==="admin"?true:false)
 }
+
 
 const SignPageUser = ({loading, error, ...props})=> {
     const usenavigate = useNavigate();
@@ -24,7 +25,7 @@ const SignPageUser = ({loading, error, ...props})=> {
         e.preventDefault()
         const addUser = { username, email, password, phonenumber, enabled }
         console.log(addUser)
-        fetch("http://localhost:8080/users/addUser", {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addUser", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addUser)
@@ -35,8 +36,8 @@ const SignPageUser = ({loading, error, ...props})=> {
                
             }
             if(res.ok){
-                usenavigate("/user/signupredirect1")
-                sessionStorage.setItem("loggedIn","signup");
+                usenavigate("/admin/signupredirect1")
+                sessionStorage.setItem("loggedIn","admin");
                 console.log("New User Added")
             }
         }).catch(err=>{
@@ -70,7 +71,7 @@ const SignPageUser = ({loading, error, ...props})=> {
 
                 <div class="container">
                     <div class="user signinBx">
-                        <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg" alt="" /></div>
+                        <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
 
                         <div class="formBx">
 
@@ -79,10 +80,10 @@ const SignPageUser = ({loading, error, ...props})=> {
                                 <div className="form-group">
                                     <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                         <li className="nav-item">
-                                            <a className="nav-link" id="home-tab" data-toggle="tab" href="/admin/signup" role="tab" aria-controls="home" aria-selected="true">Admin</a>
+                                            <a className="nav-link active" id="home-tab" data-toggle="tab" href="/admin/signup" role="tab" aria-controls="home" aria-selected="true">Admin</a>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link active" id="profile-tab" data-toggle="tab" href="/user/signup" role="tab" aria-controls="profile" aria-selected="false">User</a>
+                                            <a className="nav-link" id="profile-tab" data-toggle="tab" href="/user/signup" role="tab" aria-controls="profile" aria-selected="false">User</a>
                                         </li>
                                     </ul>
                                     <input type="text" className="form-control" id="username" value={username}
@@ -109,7 +110,7 @@ const SignPageUser = ({loading, error, ...props})=> {
 
                                 <p class="signup">
                                     Already have an account ?
-                                    <a href="/user/login" onclick="toggleForm">Sign in.</a>
+                                    <a href="/admin/login" onclick="toggleForm">Sign in.</a>
                                 </p>
                             </form>
                         </div>

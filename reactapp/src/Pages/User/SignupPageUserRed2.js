@@ -4,14 +4,11 @@ import React, { useState } from "react";
 function SignupPageAdminRe() {
     const usenavigate = useNavigate();
     const [authorities_id] = useState('2')
-
-
-
     const handleClick = (e) => {
         e.preventDefault()
         const addAuth = { authorities_id }
         console.log(addAuth)
-        fetch("http://localhost:8080/users/addAuth", {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuth", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addAuth)
@@ -20,15 +17,11 @@ function SignupPageAdminRe() {
         })
         usenavigate("/user/login")
     }
-
-
-
-
     return (
         <div className="area">
-            <br></br>
-            <div className='App'>Click The button to Complete The Last Remaining Step</div>
-            <button className="custom-btn btn-6" onClick={handleClick}>Hlo</button>
+        <br></br>
+            <div className='App'>Click The button to Complete The Last Step</div>
+            <button className="custom-btn btn-6" onClick={handleClick}><span>Click Me</span></button>
             <div class="boat">
                 <div class="wrap">
                     <div class="main">
