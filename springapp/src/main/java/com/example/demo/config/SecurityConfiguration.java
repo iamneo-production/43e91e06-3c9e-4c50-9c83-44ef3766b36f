@@ -20,38 +20,41 @@ import com.example.demo.services.CustomUserService;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private CustomUserService userservice;
-	
+
 	@Autowired
 	private JwtTokenHelper jwtTokenHelper;
-	
+
 	@Autowired
 	private AuthenticationEntryPoint authenticationEntryPoint;
-	
-	
-	/*@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		//In memory
-		auth.inMemoryAuthentication().withUser("Vasanth").password(passwordEncoder().encode("raina9486")).authorities("USER","ADMIN");
-		//database
-		auth.userDetailsService(userservice).passwordEncoder(passwordEncoder());
-	}*/
-	
-	/*@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}*/
-	
+
+	/*
+	 * @Override
+	 * protected void configure(AuthenticationManagerBuilder auth) throws Exception
+	 * {
+	 * //In memory
+	 * auth.inMemoryAuthentication().withUser("Vasanth").password(passwordEncoder().
+	 * encode("raina9486")).authorities("USER","ADMIN");
+	 * //database
+	 * auth.userDetailsService(userservice).passwordEncoder(passwordEncoder());
+	 * }
+	 */
+
+	/*
+	 * @Bean
+	 * public PasswordEncoder passwordEncoder() {
+	 * return new BCryptPasswordEncoder();
+	 * }
+	 */
+
 	@Bean
-    public PasswordEncoder passwordEncoder(){
-        return NoOpPasswordEncoder.getInstance();
-    }
-	
-	
-	
+	public PasswordEncoder passwordEncoder() {
+		return NoOpPasswordEncoder.getInstance();
+	}
+
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -61,25 +64,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		//http.authorizeRequests().anyRequest().authenticated();
-		
-		//http.authorizeRequests((request)->request.antMatchers("/h2-console/**").permitAll().anyRequest().authenticated()).httpBasic();
+		// http.authorizeRequests().anyRequest().authenticated();
+
+		// http.authorizeRequests((request)->request.antMatchers("/h2-console/**").permitAll().anyRequest().authenticated()).httpBasic();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().exceptionHandling()
-		.authenticationEntryPoint(authenticationEntryPoint).and()
-		.authorizeRequests((request)->request.antMatchers("h2-console/**","/api/v1/auth/login","api/v1/auth/dashbord","/auth/userinfo","/users/addUser","/users/addAuthority","/users/addAuth"
-				,"/course/viewcourses","/course/addCourse","/course/{courseid}","/course/updatecourse/{courseid}","/institute/viewinstitute","/institute/addInstitute","/institute/{instituteid}","/institute/updateinstitute/{instituteid}",
-				"/course/institute/{instituteid}","/course/institutes/{instituteid}").permitAll().antMatchers(HttpMethod.OPTIONS,"/**").permitAll().anyRequest().authenticated())
-		.addFilterBefore(new JWTAuthenticationFilter(userservice,jwtTokenHelper),UsernamePasswordAuthenticationFilter.class);
-		
-		
+				.authenticationEntryPoint(authenticationEntryPoint).and()
+				.authorizeRequests((request) -> request
+						.antMatchers("h2-console/**", "/api/v1/auth/login", "api/v1/auth/dashbord", "/auth/userinfo",
+								"/users/addUser", "/users/addAuthority", "/users/addAuth", "/course/viewcourses",
+								"/course/addCourse", "/course/{courseid}", "/course/updatecourse/{courseid}",
+								"/institute/viewinstitute", "/institute/addInstitute", "/institute/{instituteid}",
+								"/institute/updateinstitute/{instituteid}",
+								"/course/institute/{instituteid}", "/course/institutes/{instituteid}",
+								"/users/{username}")
+						.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated())
+				.addFilterBefore(new JWTAuthenticationFilter(userservice, jwtTokenHelper),
+						UsernamePasswordAuthenticationFilter.class);
+
 		http.cors();
-		//http.formLogin();
-		
+		// http.formLogin();
+
 		http.csrf().disable().headers().frameOptions().disable();
 	}
-
-	
-	
-	
 
 }

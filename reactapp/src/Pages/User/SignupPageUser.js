@@ -9,7 +9,7 @@ export const getFakeLogin=()=>{
 }
 
 
-const SignPageUser = ({loading, error, ...props})=> {
+const SignPageAdmin = ({loading, error, ...props})=> {
     const usenavigate = useNavigate();
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -36,7 +36,7 @@ const SignPageUser = ({loading, error, ...props})=> {
                
             }
             if(res.ok){
-                usenavigate("/admin/signupredirect1")
+                usenavigate("/user/signupredirect1/"+username)
                 sessionStorage.setItem("loggedIn","admin");
                 console.log("New User Added")
             }
@@ -124,4 +124,4 @@ const SignPageUser = ({loading, error, ...props})=> {
     )
 }
 
-export default SignPageUser
+export default SignPageAdmin

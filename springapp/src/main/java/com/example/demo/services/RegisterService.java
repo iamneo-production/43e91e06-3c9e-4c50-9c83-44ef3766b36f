@@ -12,35 +12,35 @@ import com.example.demo.model.Auth;
 import com.example.demo.model.Authority;
 import com.example.demo.model.User;
 
-
 @Service
 public class RegisterService {
-	
+
 	@Autowired
 	public AuthorityRepository authorityrepository;
-	
+
 	@Autowired
 	public UserDetailsRepository userdetailsrepository;
-	
+
 	@Autowired
 	public AuthRepository authrepository;
-	
-	public User saveUser(User user) throws Exception{
+
+	public User saveUser(User user) throws Exception {
 		User local = this.userdetailsrepository.findByUsername(user.getUsername());
-		if(local!=null) {
+		if (local != null) {
 			System.out.println("User is already there!!");
-            throw new Exception("User exits ");
-		}
-		else {
+			throw new Exception("User exits ");
+		} else {
 			local = userdetailsrepository.save(user);
 		}
 		return local;
 	}
-	
-	public List<User>getUsers(){
+
+	public List<User> getUsers() {
 		return userdetailsrepository.findAll();
 	}
-	
-	
+
+	public User findByUsername(String username) {
+		return userdetailsrepository.findByUsername(username);
+	}
 
 }

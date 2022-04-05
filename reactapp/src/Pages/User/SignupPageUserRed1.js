@@ -1,13 +1,21 @@
 import React from 'react'
 import { useState } from "react";
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import SignupService from '../Admin/SignupPageService';
 import { useNavigate } from 'react-router-dom';
+import '../Admin/MoreInfo.css'
 import '../../App.css'
 
 
-function SignupPageUserRed1() {
+function SignupPageAdminRed1() {
     const usenavigate = useNavigate();
     const [roleCode] = useState('USER')
     const [roleDescription] = useState('USER')
+    const[id,setId] = useState('')
+    const{username} = useParams()
+    console.log(username)
+    console.log(id)
 
 
     const handleClick = (e) => {
@@ -23,10 +31,19 @@ function SignupPageUserRed1() {
         }).then(() => {
             console.log("You Can Move On")
         })
-        usenavigate("/user/signupredirect2")
+        usenavigate("/user/signupredirect2/"+username)
 
     }
 
+    useEffect(()=>{
+        SignupService.findByUser(username).then((response)=>{
+            setId(response.data.id)
+			console.log(id)
+            
+        }).catch(error=>{
+            console.log(error)
+        })
+    },[])
 
 
 
@@ -91,4 +108,4 @@ function SignupPageUserRed1() {
     )
 }
 
-export default SignupPageUserRed1
+export default SignupPageAdminRed1

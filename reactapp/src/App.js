@@ -40,8 +40,8 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path="/admin/login" element={<LoginPageAdmin/>}/>
           <Route path='/admin/signup' element={<SignupAdmin/>}/>
-          <Route path='/admin/signupredirect1' element={<SignupPageAdminRed1/>}/>
-          <Route path='/admin/signupredirect2' element={<SignupPageAdminRe/>}/>
+          <Route path='/admin/signupredirect1/:username' element={<SignupPageAdminRed1/>}/>
+          <Route path='/admin/signupredirect2/:username' element={<SignupPageAdminRe/>}/>
           <Route path="/admin/Authentication" element={<AuthAdmin/>}/>
           
 

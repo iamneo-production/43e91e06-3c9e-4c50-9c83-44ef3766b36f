@@ -10,6 +10,10 @@ class SignupService{
         return axios.get(VIEW_BASE_REST_API_URL+"/viewusers");
     }
 
+    findByUser(username){
+        return axios.get(VIEW_BASE_REST_API_URL+'/'+username);
+    }
+
     
 }
 

@@ -9,6 +9,10 @@ function SignupPageAdminRed1() {
     const usenavigate = useNavigate();
     const [roleCode] = useState('ADMIN')
     const [roleDescription] = useState('ADMIN')
+    const[id,setId] = useState('')
+    const{username} = useParams()
+    console.log(username)
+    console.log(id)
 
 
     const handleClick = (e) => {
@@ -24,10 +28,19 @@ function SignupPageAdminRed1() {
         }).then(() => {
             console.log("You Can Move On")
         })
-        usenavigate("/admin/signupredirect2")
+        usenavigate("/admin/signupredirect2/"+username)
 
     }
 
+    useEffect(()=>{
+        SignupService.findByUser(username).then((response)=>{
+            setId(response.data.id)
+			console.log(id)
+            
+        }).catch(error=>{
+            console.log(error)
+        })
+    },[])
 
 
 
