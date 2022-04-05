@@ -47,8 +47,8 @@ function App() {
 
           <Route path="/user/login" element={<LoginPageUser/>}/>
           <Route path='/user/signup' element={<SignupUser/>}/>
-          <Route path='/user/signupredirect1' element={<SignupPageUserRed1/>}/>
-          <Route path='/user/signupredirect2' element={<SignupPageUserRed2/>}/>
+          <Route path='/user/signupredirect1/:username' element={<SignupPageUserRed1/>}/>
+          <Route path='/user/signupredirect2/:username' element={<SignupPageUserRed2/>}/>
 
           <Route path="/user/Authentication" element={<AuthUser/>}/>
           
