@@ -9,7 +9,7 @@ function SignupPageAdminRe() {
         e.preventDefault()
         const addAuth = { authorities_id }
         console.log(addAuth)
-        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuth", {
+        fetch("https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuth", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addAuth)
