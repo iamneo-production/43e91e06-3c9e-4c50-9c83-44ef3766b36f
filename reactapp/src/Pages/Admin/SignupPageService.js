@@ -1,5 +1,5 @@
 import axios from "axios";
-const VIEW_BASE_REST_API_URL = 'https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users';
+const VIEW_BASE_REST_API_URL = 'https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users';
 
 class SignupService{
     getUserByName(username){

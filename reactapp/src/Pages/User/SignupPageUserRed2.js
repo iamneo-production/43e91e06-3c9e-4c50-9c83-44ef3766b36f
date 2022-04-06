@@ -5,7 +5,7 @@ import '../Admin/MoreInfo.css'
 import { useParams } from "react-router-dom";
 import SignupService from "../Admin/SignupPageService";
 
-function SignupPageAdminRe() {
+function SignupPageUserRe() {
     const usenavigate = useNavigate();
     const[id,setId] = useState('')
     const {username} = useParams()
@@ -20,7 +20,7 @@ function SignupPageAdminRe() {
         e.preventDefault()
         const addAuth = { authorities_id }
         console.log(addAuth)
-        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuth", {
+        fetch("https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuth", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addAuth)
@@ -96,4 +96,4 @@ function SignupPageAdminRe() {
     )
 }
 
-export default SignupPageAdminRe
+export default SignupPageUserRe

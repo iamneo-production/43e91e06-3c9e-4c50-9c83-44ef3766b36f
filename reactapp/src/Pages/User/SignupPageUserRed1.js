@@ -8,7 +8,7 @@ import '../Admin/MoreInfo.css'
 import '../../App.css'
 
 
-function SignupPageAdminRed1() {
+function SignupPageUserRed1() {
     const usenavigate = useNavigate();
     const [roleCode] = useState('USER')
     const [roleDescription] = useState('USER')
@@ -24,7 +24,7 @@ function SignupPageAdminRed1() {
 
         const addAuthentication = { roleCode, roleDescription }
         console.log(addAuthentication)
-        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuthority", {
+        fetch("https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addAuthority", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addAuthentication)
@@ -108,4 +108,4 @@ function SignupPageAdminRed1() {
     )
 }
 
-export default SignupPageAdminRed1
+export default SignupPageUserRed1;
