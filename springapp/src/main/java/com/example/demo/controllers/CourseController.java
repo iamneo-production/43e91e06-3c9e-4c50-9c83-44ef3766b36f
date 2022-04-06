@@ -1,10 +1,9 @@
 package com.example.demo.controllers;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,48 +12,51 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Course;
+import com.example.demo.model.CourseModel;
 import com.example.demo.services.CourseService;
 
 @RestController
-@RequestMapping("/admin")
 @CrossOrigin
+@RequestMapping("/course")
 public class CourseController {
 	
 	@Autowired
-	public CourseService cservice;
+	public CourseService courseservice;
+	
+	@GetMapping("/viewcourses")
+	public List<CourseModel>findAllCourses(){
+		return courseservice.getCourses();
+	}
+	
+	@GetMapping("/{courseid}")
+	public CourseModel getCourseById(@PathVariable int courseid) {
+		return courseservice.getCourseById(courseid);
+	}
+	
 	
 	@PostMapping("/addCourse")
-	public String add(@RequestBody Course course) {
-		cservice.saveCourse(course);
-		return "New Course is added";
+	public CourseModel addCourse(@RequestBody CourseModel course) {
+		return courseservice.saveCourse(course);
 	}
 	
-	@GetMapping("/viewCourse")
-	public List<Course> getAllCourses(){
-		return cservice.getAllCourses();
+	@DeleteMapping("/{courseid}")
+	public void deleteById(@PathVariable int courseid) {
+		courseservice.deleteById(courseid);
 	}
 	
-	@GetMapping("/viewCourseById/{id}")
-	public Course getCourseById(@PathVariable int id){
-		return cservice.findCourseById(id);
+	@PutMapping("/updatecourse/{courseid}")
+	public ResponseEntity<CourseModel>editCourse(@RequestBody CourseModel course,@PathVariable int courseid){
+		CourseModel courses = courseservice.getCourseById(courseid);
+		courses.setCoursename(course.getCoursename());
+		courses.setCourseDuration(course.getCourseDuration());
+		courses.setCourseDescription(course.getCourseDescription());
+		CourseModel updatedCourse = courseservice.saveCourse(courses);
+		return ResponseEntity.ok(updatedCourse);
 	}
 	
 	
-	@DeleteMapping("/deleteCourse/{id}")
-	@ResponseStatus(code=HttpStatus.OK ,reason="OK")
-	public void delete(@PathVariable int id) {
-		cservice.deleteCourse(id);
 	
-	}
-	
-	@PutMapping("/updateCourse/{id}")
-	@ResponseStatus(code=HttpStatus.OK,reason="OK")
-	public void update(@PathVariable int id,@RequestBody Course course) {
-		cservice.updateCourse(id, course);
-	}
 
 }

@@ -1,19 +1,46 @@
 package com.example.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
-import com.example.demo.model.Course;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public interface CourseService {
-public Course saveCourse(Course course);
+import com.example.demo.dao.CourseRepository;
+import com.example.demo.model.CourseModel;
+
+@Service
+public class CourseService {
 	
-	public List<Course> getAllCourses();
-
-	public void deleteCourse(int id);
-
-	public void updateCourse(int id, Course course);
+	@Autowired
+	public CourseRepository courserepository;
 	
-	public Course findCourseById(int id);
-
+	
+	public List<CourseModel>getCourses(){
+		return courserepository.findAll();
+	}
+	
+	public CourseModel getCourseById(int courseid) {
+		Optional<CourseModel>course = courserepository.findById(courseid);
+		return (course.get());
+	}
+	
+	
+	
+	public CourseModel saveCourse(CourseModel course) {
+		return courserepository.save(course);
+	}
+	
+	public void deleteById(int courseid) {
+		courserepository.deleteById(courseid);
+	}
+	
+	public CourseModel updateCourse(int courseid,CourseModel course) {
+		if(getCourseById(course.getCourseid())==null) {
+			return null;
+		}
+		CourseModel courses = courserepository.save(course);
+		return courses;
+	}
 
 }

@@ -1,41 +1,57 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import {useNavigate,useParams} from 'react-router-dom'
 import * as ReactBootStarp from 'react-bootstrap';
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import AdminService from './AdminService';
 
-function AddCourseAdmin() {
-    const usenavigate = useNavigate()
+
+const UpdateComponent=()=>{
     const[coursename,setCoursename]=useState('')
     const[courseDescription,setCourseDescription]=useState('')
     const[courseDuration,setCourseDuration]=useState('')
+    const navigate = useNavigate();
+    const{courseid}=useParams();
 
-    const handleClick=(e)=>{
-        e.preventDefault()
-        const addcourse={coursename,courseDescription,courseDuration}
-        console.log(addcourse)
-        fetch("http://localhost:8080/course/addCourse" ,{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(addcourse)
-        }).then(()=>{
-            usenavigate("/admin/courseadmin")
-            console.log("New Course Added")
-        })
+
+    const UpdateCourse = (e)=>{
+        e.preventDefault();
+        const course = {coursename,courseDescription,courseDuration}
+        if(courseid){
+            AdminService.updateCourse(courseid,course).then((response)=>{
+                navigate('/admin/courseadmin')
+            }).catch(error=>{
+                console.log(error)
+            })
+        }else{
+            AdminService.addCourse(course).then((response)=>{
+                console.log(response.data)
+                navigate('/admin/addCourse')
+            }).catch(error=>{
+                console.log(error)
+            })
+        }
     }
-
     const logOut=()=>{
         sessionStorage.clear()
         localStorage.clear();
-        usenavigate('/');
+        navigate('/');
 
     }
 
 
+    useEffect(()=>{
+        AdminService.getCourseById(courseid).then((response)=>{
+            setCoursename(response.data.coursename)
+            setCourseDescription(response.data.courseDescription)
+            setCourseDuration(response.data.courseDuration)
+        }).catch(error=>{
+            console.log(error)
+        })
+    },[])
 
 
-  return (
-    <div className='area'>
-    <ReactBootStarp.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    return(
+        <div className='area'>
+        <ReactBootStarp.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <ReactBootStarp.Container>
         <ReactBootStarp.Navbar.Brand href="/admin/dashboard">PG_Admission</ReactBootStarp.Navbar.Brand>
         <ReactBootStarp.Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -62,7 +78,7 @@ function AddCourseAdmin() {
 
 
     <div>
-    <ReactBootStarp.Form>
+        <ReactBootStarp.Form>
     <ReactBootStarp.Row className="mb-3">
         <ReactBootStarp.Form.Group as={ReactBootStarp.Col} controlId="formGridEmail">
         <ReactBootStarp.Form.Label>CourseName</ReactBootStarp.Form.Label>
@@ -72,51 +88,34 @@ function AddCourseAdmin() {
 
         <ReactBootStarp.Form.Group as={ReactBootStarp.Col} controlId="formGridPassword">
         <ReactBootStarp.Form.Label>Course Duration</ReactBootStarp.Form.Label>
-            <ReactBootStarp.Form.Control type="text" id="courseduration" value={courseDuration}
+            <ReactBootStarp.Form.Control type="text" id="courseDuration" value={courseDuration}
             onChange={(e)=>setCourseDuration(e.target.value)} placeholder="Years/Months" />
         </ReactBootStarp.Form.Group>
     </ReactBootStarp.Row>
 
         <ReactBootStarp.Form.Group as={ReactBootStarp.Col} controlId="exampleForm.ControlTextarea1">
             <ReactBootStarp.Form.Label>Course Description</ReactBootStarp.Form.Label>
-            <ReactBootStarp.Form.Control as="textarea" rows={3} id="coursedescription" value={courseDescription}
+            <ReactBootStarp.Form.Control as="textarea" rows={3} id="courseDescription" value={courseDescription}
             onChange={(e)=>setCourseDescription(e.target.value)} placeholder="Description" />
         </ReactBootStarp.Form.Group>
 
-        
+
 
         <div className="text-center">
-            <ReactBootStarp.Button variant="success" size="lg" type="submit" onClick={handleClick} href="/admin/viewCourse">
+            <ReactBootStarp.Button variant="success" size="lg" type="submit" onClick={(e)=>UpdateCourse(e)} >
                 Submit
             </ReactBootStarp.Button>
         </div>
         </ReactBootStarp.Form>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
 
 
     </div>
+    )
 
 
 
 
-
-
-
-
-
-  )
 }
 
-export default AddCourseAdmin
+export default UpdateComponent
