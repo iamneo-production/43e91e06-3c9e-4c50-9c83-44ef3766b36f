@@ -13,7 +13,7 @@ function AddCourseAdmin() {
         e.preventDefault()
         const addcourse={coursename,courseDescription,courseDuration}
         console.log(addcourse)
-        fetch("http://localhost:8080/course/addCourse" ,{
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/course/addCourse" ,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(addcourse)
