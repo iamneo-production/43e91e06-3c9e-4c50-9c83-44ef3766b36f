@@ -24,7 +24,7 @@ function Home() {
                     <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStarp.Nav className="me-auto">
                             <ReactBootStarp.Nav.Link className="gradient" href="/admin/login">Login</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link className="gradient" href="/admin/signup">Sign-up</ReactBootStarp.Nav.Link>
+                            <ReactBootStarp.Nav.Link className="gradient" href="/admin/mailer">Sign-up</ReactBootStarp.Nav.Link>
 
                         </ReactBootStarp.Nav>
 

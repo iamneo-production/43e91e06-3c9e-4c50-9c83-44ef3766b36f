@@ -80,11 +80,9 @@ const SignPageAdmin = ({loading, error, ...props})=> {
                                 <div className="form-group">
                                     <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                         <li className="nav-item">
-                                            <a className="nav-link active" id="home-tab" data-toggle="tab" href="/admin/mailer" role="tab" aria-controls="home" aria-selected="true">Admin</a>
+                                            <a className="nav-link active" id="home-tab" data-toggle="tab" href="/admin/signup" role="tab" aria-controls="home" aria-selected="true">Admin</a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" id="profile-tab" data-toggle="tab" href="/user/signup" role="tab" aria-controls="profile" aria-selected="false">User</a>
-                                        </li>
+                                        
                                     </ul>
                                     <input type="text" className="form-control" id="username" value={username}
                                         onChange={(e) => setUsername(e.target.value)} placeholder="Your Email *" required />

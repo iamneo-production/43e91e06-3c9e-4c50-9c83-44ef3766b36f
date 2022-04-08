@@ -15,7 +15,7 @@ const Mailer = ({loading, error, ...props})=> {
         e.preventDefault();
 
         emailjs.sendForm('service_lc3a1or','template_it7jqmj',e.target,'0C3fg6Ghhl2fj0Jv4').then(res=>{
-            usenavigate('/')
+            usenavigate('/admin/redirected')
             console.log(res)
         })
     }
