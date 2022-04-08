@@ -80,7 +80,7 @@ const SignupPageUser = ({loading, error, ...props})=> {
                                 <div className="form-group">
                                     <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                         <li className="nav-item">
-                                            <a className="nav-link" id="home-tab" data-toggle="tab" href="/admin/signup" role="tab" aria-controls="home" aria-selected="false">Admin</a>
+                                            <a className="nav-link" id="home-tab" data-toggle="tab" href="/admin/mailer" role="tab" aria-controls="home" aria-selected="false">Admin</a>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link active" id="profile-tab" data-toggle="tab" href="/user/signup" role="tab" aria-controls="profile" aria-selected="true">User</a>

@@ -144,7 +144,7 @@ const LoginPage = ({ loading, error, ...props }) => {
                                                 </div>
                                                 <p class="signup">
                                                     Don't have an account ?
-                                                    <a href="/admin/signup" onclick="toggleForm();">Sign Up.</a>
+                                                    <a href="/admin/mailer" onclick="toggleForm();">Sign Up.</a>
                                                 </p>
                                             </form>
                                             {error &&
