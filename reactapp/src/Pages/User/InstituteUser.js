@@ -111,11 +111,15 @@ export const Institute = (props) => {
                                     <ReactBootStarp.Card.Header className="gradient">Info : {institute.instituteid}</ReactBootStarp.Card.Header>
                                     <ReactBootStarp.Card.Body>
                                         <ReactBootStarp.Card.Title >Institute Name: {institute.institutename}</ReactBootStarp.Card.Title>
-                                        <ReactBootStarp.Card.Text >Institute Description: {institute.institutedescription}</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text>Institute Address: {institute.instituteaddress}</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text>Institute MobileNo: {institute.mobile}</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text>Institute Email: {institute.email}</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text >Institute Email: {institute.course[0].coursename}</ReactBootStarp.Card.Text>
+                                        <div>Institute Description: {institute.institutedescription}</div>
+                                        <br/>
+                                        <div>Institute Address: {institute.instituteaddress}</div>
+                                        <br/>
+                                        <div>Institute MobileNo: {institute.mobile}</div>
+                                        <br/>
+                                        <div>Institute Email: {institute.email}</div>
+                                        <br/>
+                                        <div>Institute Email: {institute.course[0].coursename}</div>
                                         
                                         <ReactBootStarp.Button variant="success" onClick={() => Course(institute.instituteid)}>Enroll Course</ReactBootStarp.Button>
                                         

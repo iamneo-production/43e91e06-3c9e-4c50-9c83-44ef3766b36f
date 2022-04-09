@@ -111,14 +111,17 @@ export const Institute = (props) => {
                                     <ReactBootStarp.Card.Header className="gradient">Info : {course.courseid}</ReactBootStarp.Card.Header>
                                     <ReactBootStarp.Card.Body>
                                         <ReactBootStarp.Card.Title >Course Name: {course.coursename}</ReactBootStarp.Card.Title>
-                                        <ReactBootStarp.Card.Text >Course Description: {course.courseDescription}</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text>Course Duration: {course.courseDuration}Years</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text>Institute Id: {course.instituteid}</ReactBootStarp.Card.Text>
+                                        <div>Course Description: {course.courseDescription}</div>
+                                        <br/>
+                                        <div>Course Duration: {course.courseDuration}Years</div>
+                                        <br/>
+                                        <div>Institute Id: {course.instituteid}</div>
                                         
 
                                         
                                     </ReactBootStarp.Card.Body>
                                 </ReactBootStarp.Card>
+                                <br/>
                             </div>
                     )
                 }

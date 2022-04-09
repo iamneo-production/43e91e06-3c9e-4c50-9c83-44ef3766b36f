@@ -71,7 +71,7 @@ const Mailer = ({loading, error, ...props})=> {
                                 </div>
                                   
 
-                                <button className='success'>Submit</button>
+                                <button className='custom-btn btn-5'>Submit</button>
                                 
                             </form>
                         </div>
