@@ -117,19 +117,22 @@ function CourseAdmin() {
                                     <ReactBootStarp.Card.Header className="gradient">Info : {course.courseid}</ReactBootStarp.Card.Header>
                                     <ReactBootStarp.Card.Body>
                                         <ReactBootStarp.Card.Title >Course Name: {course.coursename}</ReactBootStarp.Card.Title>
-                                        <ReactBootStarp.Card.Text >Course Description: {course.courseDescription}</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Card.Text>Course Duration: {course.courseDuration} Years</ReactBootStarp.Card.Text>
-                                        <ReactBootStarp.Button variant="success" class="custom-btn btn-5" onClick={() => Update(course.courseid)}>Update</ReactBootStarp.Button>
-                                        <ReactBootStarp.Button className='mv' class="custom-btn btn-5" variant="danger" onClick={() => deleteCourseById(course.courseid)}>
-                                            Delete</ReactBootStarp.Button>
+                                        <div>Course Description: {course.courseDescription}</div>
+                                        <br></br>
+                                        <div>Course Duration: {course.courseDuration} Years</div>
+                                        <br/>
+                                        <button variant="success" class="custom-btn btn-5" onClick={() => Update(course.courseid)}>Update</button>
+                                        <button  class="custom-btn btn-5 mv" variant="danger" onClick={() => deleteCourseById(course.courseid)}>
+                                            Delete</button>
 
                                     </ReactBootStarp.Card.Body>
                                 </ReactBootStarp.Card>
+                                <br/>
                             </div>
                     )
                 }
             </div>
-
+                
 
 
         </div>

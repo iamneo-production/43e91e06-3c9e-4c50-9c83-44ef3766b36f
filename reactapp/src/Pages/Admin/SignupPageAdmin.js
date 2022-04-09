@@ -25,7 +25,7 @@ const SignPageAdmin = ({loading, error, ...props})=> {
         e.preventDefault()
         const addUser = { username, email, password, phonenumber, enabled }
         console.log(addUser)
-        fetch("https://8080-efedfbfecaddebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addUser", {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/users/addUser", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addUser)
@@ -82,9 +82,7 @@ const SignPageAdmin = ({loading, error, ...props})=> {
                                         <li className="nav-item">
                                             <a className="nav-link active" id="home-tab" data-toggle="tab" href="/admin/signup" role="tab" aria-controls="home" aria-selected="true">Admin</a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" id="profile-tab" data-toggle="tab" href="/user/signup" role="tab" aria-controls="profile" aria-selected="false">User</a>
-                                        </li>
+                                        
                                     </ul>
                                     <input type="text" className="form-control" id="username" value={username}
                                         onChange={(e) => setUsername(e.target.value)} placeholder="Your Email *" required />

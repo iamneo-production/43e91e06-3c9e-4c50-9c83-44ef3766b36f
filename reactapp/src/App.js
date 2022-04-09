@@ -30,6 +30,8 @@ import SignupPageUser from './Pages/User/SignupPageUser';
 import SignupPageUserRe from './Pages/User/SignupPageUserRed2';
 import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
 import EditCourse from './Pages/Admin/EditCourse';
+import Mailer from './Pages/Admin/Mailer';
+import Redirect from './Pages/Admin/RedirectMailer';
 
 
 
@@ -44,6 +46,8 @@ function App() {
           <Route path='/admin/signupredirect1/:username' element={<SignupPageAdminRed1/>}/>
           <Route path='/admin/signupredirect2/:username' element={<SignupPageAdminRe/>}/>
           <Route path="/admin/Authentication" element={<AuthAdmin/>}/>
+          <Route path='/admin/mailer' element={<Mailer/>}/>
+          <Route path='/admin/redirected' element={<Redirect/>}/>
           
 
           <Route path="/user/login" element={<LoginPageUser/>}/>

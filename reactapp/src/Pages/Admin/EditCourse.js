@@ -76,38 +76,42 @@ const UpdateComponent=()=>{
     </ReactBootStarp.Container>
     </ReactBootStarp.Navbar>
 
+    <ReactBootStarp.Card>
+        <ReactBootStarp.Card.Body>
+        <ReactBootStarp.Card.Header className="gradient">Course Details</ReactBootStarp.Card.Header>
+            <div id="std">
+                <div className="input1">
+                <div className="textbox"><input type="text" 
+                    placeholder="enter Institute Id"  /></div>
+                    <div className="textbox"><input type="text" id="coursename" value={coursename}
+            onChange={(e)=>setCoursename(e.target.value)} placeholder="enter Course name"  /></div>
+                    
+                    
+                </div>
 
-    <div>
-        <ReactBootStarp.Form>
-    <ReactBootStarp.Row className="mb-3">
-        <ReactBootStarp.Form.Group as={ReactBootStarp.Col} controlId="formGridEmail">
-        <ReactBootStarp.Form.Label>CourseName</ReactBootStarp.Form.Label>
-            <ReactBootStarp.Form.Control type="text" id="coursename" value={coursename}
-            onChange={(e)=>setCoursename(e.target.value)} placeholder="Enter Course Name" />
-        </ReactBootStarp.Form.Group>
+                <div className="input2">
+                   
+                <div className="textbox"><input type="text" id="courseduration" value={courseDuration}
+            onChange={(e)=>setCourseDuration(e.target.value)} placeholder="enter CourseDuration"  /></div>
 
-        <ReactBootStarp.Form.Group as={ReactBootStarp.Col} controlId="formGridPassword">
-        <ReactBootStarp.Form.Label>Course Duration</ReactBootStarp.Form.Label>
-            <ReactBootStarp.Form.Control type="text" id="courseDuration" value={courseDuration}
-            onChange={(e)=>setCourseDuration(e.target.value)} placeholder="Years/Months" />
-        </ReactBootStarp.Form.Group>
-    </ReactBootStarp.Row>
+                    <div className="textbox"><input type="text" id="coursedescription" value={courseDescription}
+            onChange={(e)=>setCourseDescription(e.target.value)} placeholder="enter CourseDescription"  /></div>
+                </div>
 
-        <ReactBootStarp.Form.Group as={ReactBootStarp.Col} controlId="exampleForm.ControlTextarea1">
-            <ReactBootStarp.Form.Label>Course Description</ReactBootStarp.Form.Label>
-            <ReactBootStarp.Form.Control as="textarea" rows={3} id="courseDescription" value={courseDescription}
-            onChange={(e)=>setCourseDescription(e.target.value)} placeholder="Description" />
-        </ReactBootStarp.Form.Group>
-
-
-
-        <div className="text-center">
-            <ReactBootStarp.Button variant="success" size="lg" type="submit" onClick={(e)=>UpdateCourse(e)} >
-                Submit
-            </ReactBootStarp.Button>
-        </div>
-        </ReactBootStarp.Form>
-        </div>
+                <div className="input3">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+            
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} >
+                <button type="button" id="submit" onClick={(e)=>UpdateCourse(e)} href="/admin/viewCourse">Submit</button>
+                <button type="button" id="cancle" href="/admin/viewCourse" >Cancle</button>
+            </div>
+            </ReactBootStarp.Card.Body>
+        </ReactBootStarp.Card>
 
 
     </div>
