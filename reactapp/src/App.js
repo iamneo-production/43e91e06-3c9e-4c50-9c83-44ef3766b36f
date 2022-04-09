@@ -32,6 +32,7 @@ import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
 import EditCourse from './Pages/Admin/EditCourse';
 import Mailer from './Pages/Admin/Mailer';
 import Redirect from './Pages/Admin/RedirectMailer';
+import EditInstitute from './Pages/Admin/EditInstitute';
 
 
 
@@ -65,6 +66,7 @@ function App() {
             <Route path="/admin/addInstitute" element={<AddInstituteAdmin/>}/>
             <Route path="/admin/addCourse" element={<AddCourseAdmin/>}/>
             <Route path="/admin/editCourse/:courseid" element={<EditCourse/>}/>
+            <Route path="/admin/editInstitute/:instituteid" element={<EditInstitute/>}/>
             <Route path="/admin/profile" element={<ProfileAdmin/>}/>
             <Route path="/admin/news" element={<NewsAdmin/>}/>
             <Route path="/admin/addStudent" element={<AddStudentAdmin/>}/>

@@ -8,10 +8,11 @@ function AddCourseAdmin() {
     const[coursename,setCoursename]=useState('')
     const[courseDescription,setCourseDescription]=useState('')
     const[courseDuration,setCourseDuration]=useState('')
+    const[instituteid,setInstituteid]=useState('')
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const addcourse={coursename,courseDescription,courseDuration}
+        const addcourse={coursename,courseDescription,courseDuration,instituteid}
         console.log(addcourse)
         fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/course/addCourse" ,{
             method:"POST",
@@ -67,8 +68,9 @@ function AddCourseAdmin() {
         <ReactBootStarp.Card.Header className="gradient">Course Details</ReactBootStarp.Card.Header>
             <div id="std">
                 <div className="input1">
-                <div className="textbox"><input type="text" 
-                    placeholder="enter Institute Id"  /></div>
+                <div className="textbox"><input type="text" id="instituteid" value={instituteid}
+            onChange={(e)=>setInstituteid(e.target.value)} placeholder="enter Institute Id"  /></div>
+ 
                     <div className="textbox"><input type="text" id="coursename" value={coursename}
             onChange={(e)=>setCoursename(e.target.value)} placeholder="enter Course name"  /></div>
                     

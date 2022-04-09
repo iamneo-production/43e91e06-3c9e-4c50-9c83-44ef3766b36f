@@ -35,6 +35,12 @@ public class CourseController {
 		return courseservice.getCourseById(courseid);
 	}
 	
+	@GetMapping("/institute/{instituteid}")
+	public ResponseEntity<List<CourseModel>> getInstitutessById(@PathVariable int instituteid) {
+		return ResponseEntity.ok(courseservice.getInstituteById(instituteid));
+	}
+
+	
 	
 	@PostMapping("/addCourse")
 	public CourseModel addCourse(@RequestBody CourseModel course) {
@@ -52,6 +58,7 @@ public class CourseController {
 		courses.setCoursename(course.getCoursename());
 		courses.setCourseDuration(course.getCourseDuration());
 		courses.setCourseDescription(course.getCourseDescription());
+		courses.setInstituteid(course.getInstituteid());
 		CourseModel updatedCourse = courseservice.saveCourse(courses);
 		return ResponseEntity.ok(updatedCourse);
 	}

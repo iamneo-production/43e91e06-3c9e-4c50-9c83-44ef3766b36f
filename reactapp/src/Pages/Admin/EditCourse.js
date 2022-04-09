@@ -8,13 +8,14 @@ const UpdateComponent=()=>{
     const[coursename,setCoursename]=useState('')
     const[courseDescription,setCourseDescription]=useState('')
     const[courseDuration,setCourseDuration]=useState('')
+    const[instituteid,setInstituteid]=useState('')
     const navigate = useNavigate();
     const{courseid}=useParams();
 
 
     const UpdateCourse = (e)=>{
         e.preventDefault();
-        const course = {coursename,courseDescription,courseDuration}
+        const course = {coursename,courseDescription,courseDuration,instituteid}
         if(courseid){
             AdminService.updateCourse(courseid,course).then((response)=>{
                 navigate('/admin/courseadmin')
@@ -43,6 +44,7 @@ const UpdateComponent=()=>{
             setCoursename(response.data.coursename)
             setCourseDescription(response.data.courseDescription)
             setCourseDuration(response.data.courseDuration)
+            setInstituteid(response.data.instituteid)
         }).catch(error=>{
             console.log(error)
         })
@@ -81,8 +83,10 @@ const UpdateComponent=()=>{
         <ReactBootStarp.Card.Header className="gradient">Course Details</ReactBootStarp.Card.Header>
             <div id="std">
                 <div className="input1">
-                <div className="textbox"><input type="text" 
-                    placeholder="enter Institute Id"  /></div>
+                <div className="textbox"><input type="text" id="instituteid" value={instituteid}
+            onChange={(e)=>setInstituteid(e.target.value)} placeholder="enter Institute Id"  /></div>
+
+
                     <div className="textbox"><input type="text" id="coursename" value={coursename}
             onChange={(e)=>setCoursename(e.target.value)} placeholder="enter Course name"  /></div>
                     
