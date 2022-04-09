@@ -15,7 +15,7 @@ function AddInstituteAdmin() {
         e.preventDefault()
         const addinstitute={institutename,institutedescription,instituteaddress,mobile,email}
         console.log(addinstitute)
-        fetch("http://localhost:8080/institute/addInstitute" ,{
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/institute/addInstitute" ,{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(addinstitute)
