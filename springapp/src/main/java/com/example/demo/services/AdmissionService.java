@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,35 +16,46 @@ import com.example.demo.model.AdmissionModel;
 
 
 
+
 @Service
 public class AdmissionService {
 	@Autowired
 	AdmissionRepository admissionRepository;
 
-	public List<AdmissionModel> getAllAdmissions() {
-		List<AdmissionModel>admissions=new ArrayList<AdmissionModel>();
-		admissionRepository.findAll().forEach(admissions1->admissions.add(admissions1));
-		return admissions;
+	public AdmissionModel saveUser(AdmissionModel student){
+		return admissionRepository.save(student);
 	}
-
-	public AdmissionModel getAdmissionById(int studentid) {
-		return admissionRepository.findById(studentid).get();
+	
+	public List<AdmissionModel> findUsers(){
+		return admissionRepository.findAll();
 	}
-
-	public void saveOrUpdate(AdmissionModel admissions) {
-		
-		admissionRepository.save(admissions);
-		
+	
+	public List<AdmissionModel> getUserById(long id){
+		List<AdmissionModel>students = admissionRepository.findByid(id);
+		return (students);
 	}
-
-	public void delete(int studentid) {
-		
+	
+	public List<AdmissionModel> getCourseById(int courseid){
+		List<AdmissionModel>studentss = admissionRepository.findByCourseid(courseid);
+		return (studentss);
+	}
+	
+	public AdmissionModel getStudentById(int studentid) {
+		Optional<AdmissionModel>student = admissionRepository.findByStudentid(studentid);
+		return (student.get());
+	}
+	
+	public AdmissionModel updateUser(int studentid,AdmissionModel student) {
+		if(getStudentById(student.getStudentid())==null) {
+			return null;
+		}
+		AdmissionModel students = admissionRepository.save(student);
+		return students;
+	}
+	
+	
+	public void deleteById(int studentid) {
 		admissionRepository.deleteById(studentid);
-		
-	}
-	public void update(AdmissionModel admissions ,int studentid)
-	{
-		admissionRepository.save(admissions);
 	}
 	
 	

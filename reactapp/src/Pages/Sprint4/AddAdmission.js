@@ -4,35 +4,8 @@ import * as ReactBootStarp from 'react-bootstrap';
 import Dashboard from '../dashboard/dashboard';
 function AddAdmission()
 {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [gender, SetGender] = useState("");
-    const [fatherName, setFatherName] = useState("");
-    const [motherName, setMotherName] = useState("");
-    const [emailid, setEmailId] = useState("");
-    const [age, setAge] = useState("");
-    const [phoneNo, setMobileNo] = useState("");
-    const [alternateNo, setAlternateMobileNo] = useState("");
-    const [houseNo,sethouseNo] = useState("");
-    const [streetName, setstreetName] = useState("");
-    const [areaName, setareaName] = useState("");
-    const [pincode, setpinCode] = useState("");
-    const [state, setstate] = useState("");
-    const [nationality, setNationality] = useState("");
     
-    const handleClick=(e)=>{
-        e.preventDefault()
-        const Student={firstName,lastName,gender,fatherName,phoneNo,alternateNo,motherName,emailid,age,houseNo,streetName,areaName,pincode,state,nationality}
-        console.log(Student)
-        fetch("http://localhost:8080/admission/addStudent" ,{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(Student)
-        }).then(()=>{
-            console.log("New Student Added")
-            console.log(firstName);
-        })
-    }
+   
 
     return(
         <div>

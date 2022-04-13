@@ -5,91 +5,36 @@ import './AddOrUpdateStudent.css'
 
 
 export default function AddStudent() {
-    const navigate = useNavigate();
-    const [Students, setStudents] = useState([]);
-    const [error, setError] = React.useState(null);
+    
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [gender, SetGender] = useState("");
     const [fatherName, setFatherName] = useState("");
     const [motherName, setMotherName] = useState("");
-    const [emailId, setEmailId] = useState("");
-    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [emailid, setEmailId] = useState("");
     const [age, setAge] = useState("");
-    const [mobileNo, setMobileNo] = useState("");
-    const [alternateMobileNo, setAlternateMobileNo] = useState("");
-    const [gender, SetGender] = useState("");
-    const [address, setAddress] = useState({
-        houseNo: "",
-        streetName: "",
-        areaName: "",
-        pinCode: "",
-        state: "",
-        Nationality: "",
+    const [phoneNo, setMobileNo] = useState("");
+    const [alternateNo, setAlternateMobileNo] = useState("");
+    const [houseNo,sethouseNo] = useState("");
+    const [streetName, setstreetName] = useState("");
+    const [areaName, setareaName] = useState("");
+    const [pincode, setpinCode] = useState("");
+    const [state, setstate] = useState("");
+    const [nationality, setNationality] = useState("");
+    
 
-    })
-    const Reset = () => {
-        setFirstName("");
-        setLastName("");
-        setFatherName("");
-        setMotherName("");
-        setDateOfBirth("");
-        setAge("");
-        setAlternateMobileNo("");
-        setMobileNo("");
-        setEmailId("");
-        SetGender("");
-        setAddress({
-            houseNo: "",
-            streetName: "",
-            areaName: "",
-            pinCode: "",
-            state: "",
-            Nationality: "",
-        });
-    }
-    const logOut = () => {
-        sessionStorage.clear()
-        localStorage.clear();
-        navigate('/');
-
-    }
-
-
-    if (error) {
-        return (`Error ${error}`)
-    }
-
-    const onChangeAddress = (e) => {
-        setAddress({ ...address, [e.target.name]: e.target.value });
-    }
-    const checkUser = (Student) => {
-        const user = Student.find(User => User.emailId === emailId || User.mobileNo === mobileNo);
-        console.log(user);
-        return (user) ? true : false;
-    }
-
-    const OnhandleSubmit = (e) => {
-        e.preventDefault();
-
-        if (firstName === '' || lastName === '' || fatherName === '' | emailId === '' || dateOfBirth === '' || mobileNo === '' || gender === '' || motherName === '' || address.pinCode === '') {
-            alert("please Fill the required fields");
-            return;
-        }
-
-        if (checkUser(Students)) {
-            alert("user already exists");
-
-        }
-        else {
-            let userDetail = { "firstName": firstName, "lastName": lastName, "fatherName": fatherName, "motherName": motherName, "emailId": emailId, "dateOfBirth": dateOfBirth, "age": age, "mobileNo": mobileNo, "alternateMobileNo": alternateMobileNo, "gender": gender, "address": address };
-
-            const req = {
-                ...userDetail
-            }
-            console.log(req);
-            Reset();
-        }
-
+    const handleClick=(e)=>{
+        e.preventDefault()
+        const Student={firstName,lastName,gender,fatherName,phoneNo,alternateNo,motherName,emailid,age,houseNo,streetName,areaName,pincode,state,nationality}
+        console.log(Student)
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/addStudent" ,{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(Student)
+        }).then(()=>{
+            console.log("New Student Added")
+            console.log(firstName);
+        })
     }
 
 
@@ -135,7 +80,7 @@ export default function AddStudent() {
 
                 <div className="input2">
                     <div className="textbox"><input type="text" id='fatherName' placeholder="enter father name" value={fatherName} onChange={(e) => setFatherName(e.target.value)} /></div>
-                    <div className="textbox"><input type="tel" id='phoneNumber1' placeholder="enter mobile number" value={mobileNo} onChange={(e) => setMobileNo(e.target.value)} /></div>
+                    <div className="textbox"><input type="tel" id='phoneNumber1' placeholder="enter mobile number" value={phoneNo} onChange={(e) => setMobileNo(e.target.value)} /></div>
                     <div className="textbox"><input type="tel" id='phoneNumber2' placeholder="enter alternate mobile number" value={alternateMobileNo} onChange={(e) => setAlternateMobileNo(e.target.value)} /></div>
                 </div>
 
@@ -145,7 +90,7 @@ export default function AddStudent() {
                         <label htmlFor='DOB'>Date Of Birth :</label>
                         <input type="date" id='DOB' placeholder="enter Date Of Birth" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} /></div>
                     <div className="textbox"><input type="number" id='age' placeholder="enter age" value={age} onChange={(e) => setAge(e.target.value)} /></div>
-                    <div className="textbox"><input type="email" id='emailId' placeholder="enter email id" value={emailId} onChange={(e) => setEmailId(e.target.value)} /></div>
+                    <div className="textbox"><input type="email" id='emailId' placeholder="enter email id" value={email} onChange={(e) => setEmailId(e.target.value)} /></div>
                 </div>
             </div>
             <div className="input4">

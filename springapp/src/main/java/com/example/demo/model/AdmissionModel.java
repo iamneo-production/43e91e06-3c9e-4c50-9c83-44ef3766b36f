@@ -26,133 +26,164 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-@Table(name="students")
+@Table(name="student")
 public class AdmissionModel {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int studentid;
-
-	private String studentname;
 	
-	private Date studentdob;
+	private String studentName;
 	
+	private Date studentDoB;
 	
-	private String adress;
+	private String address;
 	
 	private String mobile;
 	
-	private int SSLC;
+	private int sslc;
 	
-	private int HSC;
+	private int hsc;
 	
 	private int diploma;
 	
 	private String eligibility;
 	
-	@ManyToMany
-    @JoinTable(
-            name = "courses_enrolled",
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id")
-    )
-	public
-    Set<Course> enrolledCourses = new HashSet<>();
+	private int courseid;
+	
+	private String coursename;
+	
+	private long id;
 
-   /* @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "institute_id", referencedColumnName = "instituteid")
-    private AcademyModel institution;*/
-	   
-	
-	
-	
-	public AdmissionModel() {
-		super();
-		
-	}
-	public AdmissionModel(int studentid, String studentname, Date studentdob, String adress, String mobile, int sSLC,
-			int hSC, int diploma, String eligibility) {
-		super();
-		this.studentid = studentid;
-		this.studentname = studentname;
-		this.studentdob = studentdob;
-		this.adress = adress;
-		this.mobile = mobile;
-		SSLC = sSLC;
-		HSC = hSC;
-		this.diploma = diploma;
-		this.eligibility = eligibility;
-	}
 	public int getStudentid() {
 		return studentid;
 	}
+
 	public void setStudentid(int studentid) {
 		this.studentid = studentid;
 	}
-	public String getStudentname() {
-		return studentname;
+
+	public String getStudentName() {
+		return studentName;
 	}
-	public void setStudentname(String studentname) {
-		this.studentname = studentname;
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
-	public Date getStudentdob() {
-		return studentdob;
+
+	public Date getStudentDoB() {
+		return studentDoB;
 	}
-	public void setStudentdob(Date studentdob) {
-		this.studentdob = studentdob;
+
+	public void setStudentDoB(Date studentDoB) {
+		this.studentDoB = studentDoB;
 	}
-	public String getAdress() {
-		return adress;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
 	public String getMobile() {
 		return mobile;
 	}
+
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-	public int getSSLC() {
-		return SSLC;
+
+	public int getSslc() {
+		return sslc;
 	}
-	public void setSSLC(int sSLC) {
-		SSLC = sSLC;
+
+	public void setSslc(int sslc) {
+		this.sslc = sslc;
 	}
-	public int getHSC() {
-		return HSC;
+
+	public int getHsc() {
+		return hsc;
 	}
-	public void setHSC(int hSC) {
-		HSC = hSC;
+
+	public void setHsc(int hsc) {
+		this.hsc = hsc;
 	}
+
 	public int getDiploma() {
 		return diploma;
 	}
+
 	public void setDiploma(int diploma) {
 		this.diploma = diploma;
 	}
+
 	public String getEligibility() {
 		return eligibility;
 	}
+
 	public void setEligibility(String eligibility) {
 		this.eligibility = eligibility;
 	}
-	public Set<Course> getEnrolledCourses() {
-		return enrolledCourses;
+
+	public int getCourseid() {
+		return courseid;
 	}
-	public void setEnrolledCourses(Set<Course> enrolledCourses) {
-		this.enrolledCourses = enrolledCourses;
+
+	public void setCourseid(int courseid) {
+		this.courseid = courseid;
 	}
-	/*public AcademyModel getInstitution() {
-		return institution;
+
+	public String getCoursename() {
+		return coursename;
 	}
-	public void setInstitution(AcademyModel institution) {
-		this.institution = institution;
+
+	public void setCoursename(String coursename) {
+		this.coursename = coursename;
 	}
-	*/
-	public void setInstitution(AcademyModel institution) {
-		// TODO Auto-generated method stub
-		
+
+	public long getId() {
+		return id;
 	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public AdmissionModel(int studentid, String studentName, Date studentDoB, String address, String mobile, int sslc,
+			int hsc, int diploma, String eligibility, int courseid, String coursename, long id) {
+		super();
+		this.studentid = studentid;
+		this.studentName = studentName;
+		this.studentDoB = studentDoB;
+		this.address = address;
+		this.mobile = mobile;
+		this.sslc = sslc;
+		this.hsc = hsc;
+		this.diploma = diploma;
+		this.eligibility = eligibility;
+		this.courseid = courseid;
+		this.coursename = coursename;
+		this.id = id;
+	}
+
+	public AdmissionModel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "AdmissionModel [studentid=" + studentid + ", studentName=" + studentName + ", studentDoB=" + studentDoB
+				+ ", address=" + address + ", mobile=" + mobile + ", sslc=" + sslc + ", hsc=" + hsc + ", diploma="
+				+ diploma + ", eligibility=" + eligibility + ", courseid=" + courseid + ", coursename=" + coursename
+				+ ", id=" + id + "]";
+	}
+	
+	
+	
+	
+	
+	
 
 }

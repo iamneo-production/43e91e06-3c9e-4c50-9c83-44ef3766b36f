@@ -13,6 +13,35 @@ const MainWrapper = styled.div`
 
 export const StudentAdmin = (props) => {
     const usenavigate = useNavigate();
+    const [students, setStudents] = useState([])
+    useEffect(() => {
+        getAllStudents();
+    }, [])
+
+    const getAllStudents = () => {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/viewStudents")
+            .then(res => res.json())
+            .then((result) => {
+                setStudents(result)
+            }).catch(error => {
+                console.log(error);
+            })
+    }
+    const deleteStudentById = (id) => {
+        (
+            Service.deleteStudentById(id).then((response) => {
+                getAllStudents();
+            }).catch(error => {
+                console.log(error);
+
+            })
+
+        )
+    }
+    function Update(id) {
+        console.log(id);
+        navigate('/admin/editAdmission/' + id)
+    }
 
     const handleclick = () => {
         usenavigate("/admin/addStudent");
@@ -83,6 +112,21 @@ export const StudentAdmin = (props) => {
                         <th scope='col' >Action </th>
                     </tr>
                 </thead>
+                <tbody>
+                    {
+                        students.map(student => 
+                        <tr key={student.id}>
+                            <th scope='row'>{student.id}</th>
+                            <td>{student.firstName}</td>
+                            <td>{student.emailId}</td>
+                            <td>{student.enrolledCourse}</td>
+                            <td>{student.mobile}</td>
+                            <td><abbr title='Update Student' ><button onClick={() => Update(student.id)}><i class="fa-solid fa-pen-to-square" style={{fontSize:"1rem"}}></i></button></abbr>
+                                <abbr title="Delete Student"><button onClick={() => deleteStudentById(student.id)}><i class="fa-solid fa-trash-can" style={{fontSize:"1rem"}}></i> </button></abbr>
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
 
             </table>
 
