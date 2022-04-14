@@ -30,7 +30,7 @@ function Enrolldetail() {
 
     useEffect(()=>{
         setId(data.id)
-    },)
+    })
 
     const handleSubmit=(id)=>{
         usenavigate("/user/enrolledCourse/"+id)
@@ -41,8 +41,14 @@ function Enrolldetail() {
         const editStudent = { studentName, studentDoB, address, mobile, sslc, hsc, diploma, eligibility, id, courseid, coursename,instituteid,institutename }
         if(studentid){
             EnrollService.updateStudent(studentid,editStudent).then((response)=>{
-                usenavigate('/user/dashboard')
+                usenavigate('/user/enrolledCourse/'+id)
             }).catch((error)=>{
+                console.log(error)
+            })
+        }else{
+            EnrollService.addStudent(editStudent).then((response)=>{
+                console.log(response.data)
+            }).catch(error=>{
                 console.log(error)
             })
         }
@@ -163,7 +169,7 @@ function Enrolldetail() {
                         </div>
 
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} >
-                            <button type="button" id="submit" onClick={(e)=>UpdateEnroll(e)} href="/admin/viewCourse">Submit</button>
+                            <button type="button" id="submit" onClick={(e)=>UpdateEnroll(e)}>Submit</button>
                             
                         </div>
                     </ReactBootStarp.Card.Body>

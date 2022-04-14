@@ -1,4 +1,5 @@
 package com.example.demo.controllers;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.AdmissionModel;
 import com.example.demo.services.AdmissionService;
 
-
-
-
-
-
 @CrossOrigin
 @RestController
 @RequestMapping("/student")
@@ -28,34 +24,34 @@ public class AdmissionController {
 	@Autowired
 	AdmissionService admissionService;
 
-	
 	@GetMapping("/viewStudents")
-	public List<AdmissionModel> findAllUsers(){
+	public List<AdmissionModel> findAllUsers() {
 		return admissionService.findUsers();
 	}
-	
+
 	@GetMapping("/{studentid}")
 	public AdmissionModel getUserById(@PathVariable int studentid) {
 		return admissionService.getStudentById(studentid);
 	}
-	
+
 	@PostMapping("/addStudent")
 	public AdmissionModel addUser(@RequestBody AdmissionModel student) {
 		return admissionService.saveUser(student);
 	}
-	
+
 	@GetMapping("/particular/{id}")
 	public ResponseEntity<List<AdmissionModel>> getById(@PathVariable long id) {
 		return ResponseEntity.ok(admissionService.getUserById(id));
 	}
-	
+
 	@DeleteMapping("/{studentid}")
 	public void deleteUser(@PathVariable int studentid) {
 		admissionService.deleteById(studentid);
 	}
-	
+
 	@PutMapping("/updateStudent/{studentid}")
-	public ResponseEntity<AdmissionModel> updateStudent(@PathVariable int studentid,AdmissionModel student) {
+	public ResponseEntity<AdmissionModel> updateStudent(@PathVariable int studentid,
+			@RequestBody AdmissionModel student) {
 		AdmissionModel students = admissionService.getStudentById(studentid);
 		students.setStudentName(student.getStudentName());
 		students.setStudentDoB(student.getStudentDoB());

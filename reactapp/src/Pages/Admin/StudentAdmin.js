@@ -3,6 +3,9 @@ import * as ReactBootStarp from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import '../Style.css'
+import { useEffect } from 'react';
+import Service from './StudentServiceAdmin'
+import './Card.css'
 
 
 
@@ -40,7 +43,7 @@ export const StudentAdmin = (props) => {
     }
     function Update(id) {
         console.log(id);
-        navigate('/admin/editAdmission/' + id)
+        usenavigate('/admin/editAdmission/' + id)
     }
 
     const handleclick = () => {
@@ -101,36 +104,43 @@ export const StudentAdmin = (props) => {
             </div>
 
 
-            <table id='userData' sx={{ minWidth: 700 }}>
-                <thead>
-                    <tr>
-                        <th scope='col'>Id</th>
-                        <th scope='col' >Name</th>
-                        <th scope='col'>Email Id</th>
-                        <th scope='col' >Enrolled Courses</th>
-                        <th scope='col' >Mobile Number </th>
-                        <th scope='col' >Action </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        students.map(student => 
-                        <tr key={student.id}>
-                            <th scope='row'>{student.id}</th>
-                            <td>{student.firstName}</td>
-                            <td>{student.emailId}</td>
-                            <td>{student.enrolledCourse}</td>
-                            <td>{student.mobile}</td>
-                            <td><abbr title='Update Student' ><button onClick={() => Update(student.id)}><i class="fa-solid fa-pen-to-square" style={{fontSize:"1rem"}}></i></button></abbr>
-                                <abbr title="Delete Student"><button onClick={() => deleteStudentById(student.id)}><i class="fa-solid fa-trash-can" style={{fontSize:"1rem"}}></i> </button></abbr>
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-
-            </table>
 
             
+
+            <ReactBootStarp.Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Student Name</th>
+      <th>Institute Name</th>
+      <th>Enrolled Course</th>
+      <th>Mobile Number</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  {
+      students.map(student=>
+  <tbody>
+    <tr>
+      <td>{student.id}</td>
+      <td>{student.studentName}</td>
+      <td>{student.institutename}</td>
+      <td>{student.coursename}</td>
+      <td>{student.mobile}</td>
+      <td><button className="custom-btn btn-5">Edit</button></td>
+      <td><button className="custom-btn btn-5">Delete</button></td>
+    </tr>
+    </tbody>
+    )
+  }
+    
+   
+  
+</ReactBootStarp.Table>
+           
+
+
 
 
 
