@@ -128,8 +128,8 @@ export const StudentAdmin = (props) => {
       <td>{student.institutename}</td>
       <td>{student.coursename}</td>
       <td>{student.mobile}</td>
-      <td><button className="custom-btn btn-5">Edit</button></td>
-      <td><button className="custom-btn btn-5">Delete</button></td>
+      <td><ReactBootStrap.Button >Edit</ReactBootStrap.Button></td>
+      <td><ReactBootStrap.Button >Delete</ReactBootStrap.Button></td>
     </tr>
     </tbody>
     )

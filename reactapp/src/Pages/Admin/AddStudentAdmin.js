@@ -100,7 +100,7 @@ export default function AddStudent() {
                     <div className="textbox"><input type="email" id='emailId' placeholder="enter email id" value={emailid} onChange={(e) => setEmailId(e.target.value)} /></div>
                 </div>
             </div>
-            <div className="input4">
+            {/*<div className="input4">
                 <label>Address Infrmation:</label>
                 <table>
                     <tbody>
@@ -130,10 +130,10 @@ export default function AddStudent() {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+    </div>*/}
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} >
-                <button type="button" id="submit" onClick={OnhandleSubmit} >Submit</button>
-                <button type="button" id="cancle" onClick={() => navigate(-1)} >Cancle</button>
+                <button type="button" id="submit"  >Submit</button>
+                <button type="button" id="cancle" onClick={() => usenavigate(-1)} >Cancle</button>
             </div>
         </div>
 
