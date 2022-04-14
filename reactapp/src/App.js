@@ -33,6 +33,9 @@ import EditCourse from './Pages/Admin/EditCourse';
 import Mailer from './Pages/Admin/Mailer';
 import Redirect from './Pages/Admin/RedirectMailer';
 import EditInstitute from './Pages/Admin/EditInstitute';
+import EnrolledCourse from './Pages/User/EnrolledCourse';
+import Enrolldetail from './Pages/User/Enrolldetails';
+import EditEnroll from './Pages/User/EditEnroll';
 
 
 
@@ -77,7 +80,10 @@ function App() {
           </Route>
 
           <Route element={<ProtectedRouteUser/>}>
-          <Route path="/user/enrollCourse/:instituteid" element={<EnrollCourse/>}/>  
+            <Route path="/user/enrollCourse/:instituteid/:institutename" element={<EnrollCourse/>}/>
+            <Route path="/user/enrolldetails/:coursename/:courseid/:instituteid/:institutename" element={<Enrolldetail/>}/>
+            <Route path="/user/enrolledCourse/:id" element={<EnrolledCourse/>}/> 
+            <Route path="/user/editEnroll/:studentid" element={<EditEnroll/>}/>
             <Route path="/user/dashboard" element={<DashboardUser/>}/>
             <Route path="/user/moreinfo" element={<MoreInfoUser/>}/>
             <Route path="/user/viewInstitute" element={<InstituteUser/>}/>

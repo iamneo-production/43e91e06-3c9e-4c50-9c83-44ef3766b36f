@@ -35,6 +35,9 @@ export const Institute = (props) => {
     }
 
 
+    const handleSubmit=(id)=>{
+        usenavigate("/user/enrolledCourse/"+id)
+    }
 
     
 
@@ -49,9 +52,9 @@ export const Institute = (props) => {
         })
     }, [])
 
-    function Course(instituteid) {
-        console.log(instituteid)
-        usenavigate('/user/enrollCourse/' + instituteid)
+    function Course(instituteid,institutename) {
+        console.log(instituteid,institutename)
+        usenavigate('/user/enrollCourse/' + instituteid +'/'+ institutename)
     }
 
     const logOut = () => {
@@ -74,7 +77,7 @@ export const Institute = (props) => {
                     <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStarp.Nav className="me-auto">
                             <ReactBootStarp.Nav.Link href="/user/viewInstitute">Institute</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link href="/user/enrolledCourse">Enrolled Courses</ReactBootStarp.Nav.Link>
+                            <ReactBootStarp.Nav.Link onClick={()=>handleSubmit(data.id)}>Enrolled Courses</ReactBootStarp.Nav.Link>
                             <ReactBootStarp.Nav.Link href="/user/news">News Feed</ReactBootStarp.Nav.Link>
                         </ReactBootStarp.Nav>
                         <ReactBootStarp.Nav>
@@ -121,7 +124,7 @@ export const Institute = (props) => {
                                         <br/>
                                         <div>Institute Email: {institute.course[0].coursename}</div>
                                         
-                                        <ReactBootStarp.Button variant="success" onClick={() => Course(institute.instituteid)}>Enroll Course</ReactBootStarp.Button>
+                                        <ReactBootStarp.Button variant="success" onClick={() => Course((institute.instituteid),(institute.institutename))}>Enroll Course</ReactBootStarp.Button>
                                         
                                     </ReactBootStarp.Card.Body>
                                 </ReactBootStarp.Card>

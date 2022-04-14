@@ -26,6 +26,10 @@ export const Dashboard=(props)=>{
         })
     },[])
 
+    const handleSubmit=(id)=>{
+        usenavigate("/user/enrolledCourse/"+id)
+    }
+
     const logOut=()=>{
         sessionStorage.clear()
         localStorage.clear();
@@ -45,7 +49,7 @@ export const Dashboard=(props)=>{
         <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
         <ReactBootStarp.Nav className="me-auto">
         <ReactBootStarp.Nav.Link href="/user/viewInstitute">Institute</ReactBootStarp.Nav.Link>
-        <ReactBootStarp.Nav.Link href="/user/enrollCourse/:instituteid">Enrolled Courses</ReactBootStarp.Nav.Link>        
+        <ReactBootStarp.Nav.Link onClick={()=>handleSubmit(data.id)}>Enrolled Courses</ReactBootStarp.Nav.Link>        
         <ReactBootStarp.Nav.Link href="/user/news">News Feed</ReactBootStarp.Nav.Link>
     </ReactBootStarp.Nav>
     <ReactBootStarp.Nav>

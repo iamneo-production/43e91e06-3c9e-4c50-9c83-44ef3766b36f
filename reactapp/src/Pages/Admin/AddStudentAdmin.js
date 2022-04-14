@@ -14,18 +14,19 @@ export default function AddStudent() {
     const [emailid, setEmailId] = useState("");
     const [age, setAge] = useState("");
     const [phoneNo, setMobileNo] = useState("");
-    const [alternateNo, setAlternateMobileNo] = useState("");
+    const [alternateMobileNo, setAlternateMobileNo] = useState("");
     const [houseNo,sethouseNo] = useState("");
     const [streetName, setstreetName] = useState("");
     const [areaName, setareaName] = useState("");
+    const [dateOfBirth,setDateOfBirth] = useState("")
     const [pincode, setpinCode] = useState("");
     const [state, setstate] = useState("");
     const [nationality, setNationality] = useState("");
-    
+    const usenavigate = useNavigate();
 
     const handleClick=(e)=>{
         e.preventDefault()
-        const Student={firstName,lastName,gender,fatherName,phoneNo,alternateNo,motherName,emailid,age,houseNo,streetName,areaName,pincode,state,nationality}
+        const Student={firstName,lastName,gender,fatherName,phoneNo,alternateMobileNo,motherName,emailid,age,houseNo,streetName,areaName,pincode,state,nationality}
         console.log(Student)
         fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/addStudent" ,{
             method:"POST",
@@ -37,6 +38,12 @@ export default function AddStudent() {
         })
     }
 
+    const logOut = () => {
+        sessionStorage.clear()
+        localStorage.clear();
+        usenavigate('/');
+
+    }
 
     return (
         <div className='font'>
@@ -90,7 +97,7 @@ export default function AddStudent() {
                         <label htmlFor='DOB'>Date Of Birth :</label>
                         <input type="date" id='DOB' placeholder="enter Date Of Birth" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} /></div>
                     <div className="textbox"><input type="number" id='age' placeholder="enter age" value={age} onChange={(e) => setAge(e.target.value)} /></div>
-                    <div className="textbox"><input type="email" id='emailId' placeholder="enter email id" value={email} onChange={(e) => setEmailId(e.target.value)} /></div>
+                    <div className="textbox"><input type="email" id='emailId' placeholder="enter email id" value={emailid} onChange={(e) => setEmailId(e.target.value)} /></div>
                 </div>
             </div>
             <div className="input4">

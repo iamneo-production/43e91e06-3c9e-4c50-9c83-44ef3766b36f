@@ -12,6 +12,10 @@ function MoreInfo() {
 
     }
 
+    const handleSubmit=(id)=>{
+        usenavigate("/user/enrolledCourse/"+id)
+    }
+
     return (
         <div className='area'>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -25,7 +29,7 @@ function MoreInfo() {
                     <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStarp.Nav className="me-auto">
                             <ReactBootStarp.Nav.Link href="/user/viewInstitute">Institute</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link href="/user/enrollCourse/:instituteid">Enrolled Courses</ReactBootStarp.Nav.Link>
+                            <ReactBootStarp.Nav.Link onClick={()=>handleSubmit(data.id)}>Enrolled Courses</ReactBootStarp.Nav.Link>
                             <ReactBootStarp.Nav.Link href="/user/news">News Feed</ReactBootStarp.Nav.Link>
                         </ReactBootStarp.Nav>
                         <ReactBootStarp.Nav>

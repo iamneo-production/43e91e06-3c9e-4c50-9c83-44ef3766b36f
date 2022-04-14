@@ -16,8 +16,9 @@ export const Institute = (props) => {
     const [query, setQuery] = useState("");
     const [course, setCourse] = useState([]);
     const{instituteid}=useParams();
+    const{institutename}=useParams();
 
-
+    console.log(instituteid)
 
     useEffect(() => {
         getInstitutesById();
@@ -53,6 +54,10 @@ export const Institute = (props) => {
             console.log(error)
         })
     },[])
+
+    function Enroll(coursename,courseid,instituteid,institutename){
+        usenavigate('/user/enrolldetails/'+coursename+'/'+courseid+'/'+instituteid+'/'+institutename)
+    }
 
     const logOut = () => {
         sessionStorage.clear()
@@ -117,7 +122,7 @@ export const Institute = (props) => {
                                         <br/>
                                         <div>Institute Id: {course.instituteid}</div>
                                         
-
+                                        <ReactBootStarp.Button variant="success" onClick={() => Enroll(course.coursename,course.courseid,instituteid,institutename)}>Enroll Course</ReactBootStarp.Button>
                                         
                                     </ReactBootStarp.Card.Body>
                                 </ReactBootStarp.Card>

@@ -1,33 +1,17 @@
 package com.example.demo.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
 
 @Entity
 @Table(name="student")
 public class AdmissionModel {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int studentid;
@@ -47,6 +31,10 @@ public class AdmissionModel {
 	private int diploma;
 	
 	private String eligibility;
+	
+	private int instituteid;
+	
+	private String institutename;
 	
 	private int courseid;
 	
@@ -126,6 +114,22 @@ public class AdmissionModel {
 		this.eligibility = eligibility;
 	}
 
+	public int getInstituteid() {
+		return instituteid;
+	}
+
+	public void setInstituteid(int instituteid) {
+		this.instituteid = instituteid;
+	}
+
+	public String getInstitutename() {
+		return institutename;
+	}
+
+	public void setInstitutename(String institutename) {
+		this.institutename = institutename;
+	}
+
 	public int getCourseid() {
 		return courseid;
 	}
@@ -151,7 +155,8 @@ public class AdmissionModel {
 	}
 
 	public AdmissionModel(int studentid, String studentName, Date studentDoB, String address, String mobile, int sslc,
-			int hsc, int diploma, String eligibility, int courseid, String coursename, long id) {
+			int hsc, int diploma, String eligibility, int instituteid, String institutename, int courseid,
+			String coursename, long id) {
 		super();
 		this.studentid = studentid;
 		this.studentName = studentName;
@@ -162,6 +167,8 @@ public class AdmissionModel {
 		this.hsc = hsc;
 		this.diploma = diploma;
 		this.eligibility = eligibility;
+		this.instituteid = instituteid;
+		this.institutename = institutename;
 		this.courseid = courseid;
 		this.coursename = coursename;
 		this.id = id;
@@ -176,13 +183,17 @@ public class AdmissionModel {
 	public String toString() {
 		return "AdmissionModel [studentid=" + studentid + ", studentName=" + studentName + ", studentDoB=" + studentDoB
 				+ ", address=" + address + ", mobile=" + mobile + ", sslc=" + sslc + ", hsc=" + hsc + ", diploma="
-				+ diploma + ", eligibility=" + eligibility + ", courseid=" + courseid + ", coursename=" + coursename
-				+ ", id=" + id + "]";
+				+ diploma + ", eligibility=" + eligibility + ", instituteid=" + instituteid + ", institutename="
+				+ institutename + ", courseid=" + courseid + ", coursename=" + coursename + ", id=" + id + "]";
 	}
+
 	
 	
 	
 	
+	
+
+		
 	
 	
 
