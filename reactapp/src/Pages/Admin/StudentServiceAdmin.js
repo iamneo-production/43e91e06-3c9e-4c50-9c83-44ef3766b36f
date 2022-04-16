@@ -1,25 +1,29 @@
 import axios from "axios";
-
 const VIEW_BASE_REST_API_URL = 'https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student';
 
-class Service{
-    addStudent(student)
-    {
-        return axios.post(VIEW_BASE_REST_API_URL+'/addStudent');
+class EnrollService{
+    getAllStudents(){
+        return axios.get(VIEW_BASE_REST_API_URL+'/viewStudents')
+    }
+
+    getById(id){
+        return axios.get(VIEW_BASE_REST_API_URL+'/particular/'+id)
+    }
+
+    addStudent(student){
+        return axios.post(VIEW_BASE_REST_API_URL+'/addStudent'+student)
     }
     getStudentById(studentid){
-        return axios.get(VIEW_BASE_REST_API_URL+'/getStudentByid='+studentid);
+        return axios.get(VIEW_BASE_REST_API_URL+'/'+studentid)
+    }
+    updateStudent(studentid,student){
+        return axios.put(VIEW_BASE_REST_API_URL+'/updateStudent/'+studentid,student);
+    }
+    deleteStudentById(studentid){
+        return axios.delete(VIEW_BASE_REST_API_URL+'/'+studentid)
     }
 
-    updateStudentById(studentid,student){
-        return axios.put(VIEW_BASE_REST_API_URL+'/updateStudentByid='+studentid,student);
-    }   
-
-    deleteStudentById(studentid)
-    {
-        return axios.delete(VIEW_BASE_REST_API_URL+'/deleteStudentByid='+studentid);
-    }
-
+    
 }
 
-export default new Service();
+export default new EnrollService();

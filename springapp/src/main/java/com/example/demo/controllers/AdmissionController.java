@@ -60,6 +60,7 @@ public class AdmissionController {
 		students.setHsc(student.getHsc());
 		students.setSslc(students.getSslc());
 		students.setEligibility(student.getEligibility());
+		students.setDiploma(student.getDiploma());
 		AdmissionModel updatestudent = admissionService.saveUser(students);
 		return ResponseEntity.ok(updatestudent);
 	}

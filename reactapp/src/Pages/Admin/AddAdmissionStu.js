@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchUserData } from '../../Api/AuthenticationService';
 import { useEffect } from 'react';
-import EnrollService from './StudentServiceAdmin';
 
 function Enrolldetail() {
     const usenavigate = useNavigate();
@@ -23,36 +22,31 @@ function Enrolldetail() {
     const {instituteid} = useParams();
     const{institutename}=useParams();
     const [data, setData] = useState({});
-    const{studentid}=useParams();
+
     console.log(id)
 
 
 
     useEffect(()=>{
         setId(data.id)
-    })
+    },)
 
     const handleSubmit=(id)=>{
-        usenavigate("/admin/enrolledCourse/"+id)
+        usenavigate("/user/enrolledCourse/"+id)
     }
 
-    const UpdateEnroll = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
-        const editStudent = { studentName, studentDoB, address, mobile, sslc, hsc, diploma, eligibility, id, courseid, coursename,instituteid,institutename }
-        if(studentid){
-            EnrollService.updateStudent(studentid,editStudent).then((response)=>{
-                usenavigate("/admin/studentadmin")
-            }).catch((error)=>{
-                console.log(error)
-            })
-        }else{
-            EnrollService.addStudent(editStudent).then((response)=>{
-                console.log(response.data)
-            }).catch(error=>{
-                console.log(error)
-            })
-        }
-        
+        const addStudent = { studentName, studentDoB, address, mobile, sslc, hsc, diploma, eligibility, id, courseid, coursename,instituteid,institutename }
+        console.log(addStudent)
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/addStudent", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(addStudent)
+        }).then(() => {
+            console.log("Student Enrolled")
+            usenavigate("/admin/studentadmin")
+        })
     }
 
 
@@ -66,21 +60,6 @@ function Enrolldetail() {
         })
     }, [])
 
-    useEffect(()=>{
-        EnrollService.getStudentById(studentid).then((response)=>{
-            setStudentName(response.data.studentName)
-            setStudentDoB(response.data.studentDoB)
-            setAddress(response.data.address)
-            setMobile(response.data.mobile)
-            setSslc(response.data.sslc)
-            setHsc(response.data.hsc)
-            setDiploma(response.data.diploma)
-            setEligibility(response.data.eligibility)
-        }).catch(error=>{
-            console.log(error)
-        })
-    },[])
-
 
 
 
@@ -92,32 +71,30 @@ function Enrolldetail() {
     }
     return (
         <div className='area'>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-                integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-                integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"></link>
             <ReactBootStarp.Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <ReactBootStarp.Container>
-                    <ReactBootStarp.Navbar.Brand href="/user/dashboard">PG_Admission</ReactBootStarp.Navbar.Brand>
-                    <ReactBootStarp.Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
-                        <ReactBootStarp.Nav className="me-auto">
-                            <ReactBootStarp.Nav.Link href="/user/viewInstitute">Institute</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link onClick={()=>handleSubmit(data.id)}>Enrolled Courses</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link href="/user/news">News Feed</ReactBootStarp.Nav.Link>
-                        </ReactBootStarp.Nav>
-                        <ReactBootStarp.Nav>
-                            <ReactBootStarp.NavDropdown title="More Info" id="collasible-nav-dropdown">
-                                <ReactBootStarp.NavDropdown.Item href="/user/profile">Profile</ReactBootStarp.NavDropdown.Item>
-                                <ReactBootStarp.NavDropdown.Item href="/user/help">Help&Support</ReactBootStarp.NavDropdown.Item>
-                                <ReactBootStarp.NavDropdown.Item href="#action/3.3">About</ReactBootStarp.NavDropdown.Item>
-                                <ReactBootStarp.NavDropdown.Divider />
-                                <ReactBootStarp.NavDropdown.Item onClick={() => logOut()}>Logout</ReactBootStarp.NavDropdown.Item>
-                            </ReactBootStarp.NavDropdown>
-                        </ReactBootStarp.Nav>
-                    </ReactBootStarp.Navbar.Collapse>
-                </ReactBootStarp.Container>
-            </ReactBootStarp.Navbar>
+    <ReactBootStarp.Container>
+        <ReactBootStarp.Navbar.Brand href="/admin/dashboard">PG_Admission</ReactBootStarp.Navbar.Brand>
+        <ReactBootStarp.Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
+        <ReactBootStarp.Nav className="me-auto">
+        <ReactBootStarp.Nav.Link className="gradient" href="/admin/academyadmin">Academy</ReactBootStarp.Nav.Link>
+        <ReactBootStarp.Nav.Link className="gradient active" href="/admin/courseadmin">Course</ReactBootStarp.Nav.Link>
+        <ReactBootStarp.Nav.Link className="gradient" href="/admin/studentadmin">Students</ReactBootStarp.Nav.Link>
+        
+        <ReactBootStarp.Nav.Link className="gradient" href="/admin/news">News Feed</ReactBootStarp.Nav.Link>
+    </ReactBootStarp.Nav>
+    <ReactBootStarp.Nav>
+      <ReactBootStarp.NavDropdown className="gradient" title="More Info" id="collasible-nav-dropdown">
+        <ReactBootStarp.NavDropdown.Item href="/admin/Profile">Profile</ReactBootStarp.NavDropdown.Item>
+        <ReactBootStarp.NavDropdown.Item href="#action/3.2">Help&Support</ReactBootStarp.NavDropdown.Item>
+        <ReactBootStarp.NavDropdown.Item href="/admin/moreinfo">About</ReactBootStarp.NavDropdown.Item>
+        <ReactBootStarp.NavDropdown.Divider />
+        <ReactBootStarp.NavDropdown.Item onClick={() =>logOut()}>LogOut</ReactBootStarp.NavDropdown.Item>
+        </ReactBootStarp.NavDropdown>
+      </ReactBootStarp.Nav>
+      </ReactBootStarp.Navbar.Collapse>
+    </ReactBootStarp.Container>
+    </ReactBootStarp.Navbar>
 
 
 
@@ -169,7 +146,7 @@ function Enrolldetail() {
                         </div>
 
                         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} >
-                            <button type="button" id="submit" onClick={(e)=>UpdateEnroll(e)}>Submit</button>
+                            <button type="button" id="submit" onClick={handleClick} href="/admin/viewCourse">Submit</button>
                             
                         </div>
                     </ReactBootStarp.Card.Body>
