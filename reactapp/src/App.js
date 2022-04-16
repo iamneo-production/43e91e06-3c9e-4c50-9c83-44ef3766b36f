@@ -37,6 +37,7 @@ import EnrolledCourse from './Pages/User/EnrolledCourse';
 import Enrolldetail from './Pages/User/Enrolldetails';
 import EditEnroll from './Pages/User/EditEnroll';
 import StudentAdmission from './Pages/Admin/AddAdmissionStu'
+import EditStudentAdmin from './Pages/Admin/EditStudentAdmin';
 
 
 
@@ -77,6 +78,7 @@ function App() {
             <Route path="/admin/studentadmin" element={<StudentAdmin/>}/>
             <Route path="/admin/moreinfo" element={<MoreInfoAdmin/>}/>
             <Route path="/admin/addstudent" element={<StudentAdmission/>}/>
+            <Route path="/admin/editStudent/:studentid" element={<EditStudentAdmin/>}/>
 
           </Route>
 

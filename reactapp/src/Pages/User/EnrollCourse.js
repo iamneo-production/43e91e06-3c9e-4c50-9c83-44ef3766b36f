@@ -17,6 +17,7 @@ export const Institute = (props) => {
     const [course, setCourse] = useState([]);
     const{instituteid}=useParams();
     const{institutename}=useParams();
+    const [id, setId] = useState('')
 
     console.log(instituteid)
 
@@ -37,7 +38,24 @@ export const Institute = (props) => {
     }
 
 
-    
+    useEffect(()=>{
+        setId(data.id)
+    },)
+
+    const handleSubmit=(id)=>{
+        usenavigate("/user/enrolledCourse/"+id)
+    }
+
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
 
 
@@ -79,7 +97,7 @@ export const Institute = (props) => {
                     <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStarp.Nav className="me-auto">
                             <ReactBootStarp.Nav.Link href="/user/viewInstitute">Institute</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link href="/user/enrolledCourse">Enrolled Courses</ReactBootStarp.Nav.Link>
+                            <ReactBootStarp.Nav.Link onClick={()=>handleSubmit(data.id)}>Enrolled Courses</ReactBootStarp.Nav.Link>
                             <ReactBootStarp.Nav.Link href="/user/news">News Feed</ReactBootStarp.Nav.Link>
                         </ReactBootStarp.Nav>
                         <ReactBootStarp.Nav>
