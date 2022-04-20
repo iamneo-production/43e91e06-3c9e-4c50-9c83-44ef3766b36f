@@ -1,10 +1,30 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './MoreInfo.css'
 import * as ReactBootStarp from 'react-bootstrap';
+import { fetchUserData } from '../../Api/AuthenticationService';
+import {useState} from 'react'
 
 function MoreInfo() {
     const usenavigate = useNavigate();
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
+    
     const logOut = () => {
         sessionStorage.clear()
         localStorage.clear();

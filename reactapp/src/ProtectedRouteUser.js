@@ -1,9 +1,9 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom';
-import { getFakeLogin } from './Pages/User/AuthenticateUser';
+import { getTokenLogin } from './Pages/User/AuthenticateUser';
 
 function ProtectedRoute() {
-    const isLoggedIn = getFakeLogin()
+    const isLoggedIn = getTokenLogin()
   return (isLoggedIn?<Outlet/>:<Navigate to="/user/login"/>);
 }
 

@@ -31,6 +31,12 @@ function Enrolldetail() {
         setId(data.id)
     },)
 
+    useEffect(()=>{
+        if(!localStorage.getItem("USER_KEY")){
+            usenavigate('/admin/login')
+        }
+    })
+
     const handleSubmit=(id)=>{
         usenavigate("/user/enrolledCourse/"+id)
     }
@@ -48,6 +54,13 @@ function Enrolldetail() {
             usenavigate("/admin/studentadmin")
         })
     }
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
 
 
     React.useEffect(() => {

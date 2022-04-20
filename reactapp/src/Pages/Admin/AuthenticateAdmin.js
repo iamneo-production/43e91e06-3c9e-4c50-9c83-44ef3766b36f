@@ -7,14 +7,19 @@ import '../Style.css';
 
 
 
-export const getFakeLogin = () => {
-    return (sessionStorage.getItem("loggedIn") === "true" ? true : false)
+export const getTokenLogin = () => {
+    if(localStorage){
+        return (localStorage.getItem("Assign")==="true"?true:false)
+    }
+    
 }
 
 function Authenticate() {
 
     const usenavigate = useNavigate();
     const [data, setData] = useState({});
+    let m = data.email
+    console.log(m)
 
 
     React.useEffect(() => {
@@ -28,10 +33,14 @@ function Authenticate() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        sessionStorage.setItem("loggedIn", true);
-        usenavigate('/admin/dashboard');
-        console.log(true)
-        return true
+        if(data.username==="undefined"){
+            usenavigate('/')
+        }else{
+            localStorage.setItem("Assign",true)
+            usenavigate('/admin/dashboard');
+        }
+        
+        
     }
 
 

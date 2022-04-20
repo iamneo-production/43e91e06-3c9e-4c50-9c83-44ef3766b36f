@@ -29,6 +29,12 @@ export const AcademyAdmin = (props) => {
         getAllInstitute();
     }, [])
 
+    useEffect(()=>{
+        if(!localStorage.getItem("USER_KEY")){
+            usenavigate('/admin/login')
+        }
+    })
+
     const getAllInstitute = () => {
         AcademyService.getAllInstitute().then((response) => {
             setInstitute(response.data)

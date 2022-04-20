@@ -1,7 +1,8 @@
 import React from 'react'
 import * as ReactBootStarp from 'react-bootstrap';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 function AddInstituteAdmin() {
     const usenavigate = useNavigate()
@@ -10,6 +11,24 @@ function AddInstituteAdmin() {
     const[instituteaddress,setInstituteaddress]=useState('')
     const[mobile,setMobile]=useState('')
     const[email,setEmail]=useState('')
+
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
     const handleClick=(e)=>{
         e.preventDefault()

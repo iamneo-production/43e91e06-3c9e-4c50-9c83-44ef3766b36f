@@ -24,11 +24,11 @@ public class RegisterService {
 	@Autowired
 	public AuthRepository authrepository;
 
-	public User saveUser(User user) throws Exception {
+	public User saveUser(User user) {
 		User local = this.userdetailsrepository.findByUsername(user.getUsername());
 		if (local != null) {
 			System.out.println("User is already there!!");
-			throw new Exception("User exits ");
+
 		} else {
 			local = userdetailsrepository.save(user);
 		}
@@ -41,6 +41,14 @@ public class RegisterService {
 
 	public User findByUsername(String username) {
 		return userdetailsrepository.findByUsername(username);
+	}
+
+	public User updateUser(String username, User user) {
+		if (findByUsername(user.getUsername()) == null) {
+			return null;
+		}
+		User users = userdetailsrepository.save(user);
+		return users;
 	}
 
 }

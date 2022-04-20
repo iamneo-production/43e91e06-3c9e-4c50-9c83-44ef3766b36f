@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as ReactBootStarp from 'react-bootstrap';
-import './AddOrUpdateStudent.css'
+import './AddOrUpdateStudent.css';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 
 export default function AddStudent() {
@@ -24,6 +25,24 @@ export default function AddStudent() {
     const [nationality, setNationality] = useState("");
     const usenavigate = useNavigate();
 
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
+
     const handleClick=(e)=>{
         e.preventDefault()
         const Student={firstName,lastName,gender,fatherName,phoneNo,alternateMobileNo,motherName,emailid,age,houseNo,streetName,areaName,pincode,state,nationality}
@@ -37,6 +56,8 @@ export default function AddStudent() {
             console.log(firstName);
         })
     }
+
+    
 
     const logOut = () => {
         sessionStorage.clear()

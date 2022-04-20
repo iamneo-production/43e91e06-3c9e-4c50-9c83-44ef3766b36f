@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import '../Style.css'
 import { useEffect } from 'react';
-import Service from './StudentServiceAdmin'
+import Service from './StudentServiceAdmin';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 
 
@@ -17,7 +18,24 @@ export const StudentAdmin = (props) => {
     const usenavigate = useNavigate();
     const [student, setStudent] = useState([])
     const[query,setQuery]=useState('');
+    const [data, setData] = useState({});
 
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
     useEffect(() => {
         getAllStudents();
