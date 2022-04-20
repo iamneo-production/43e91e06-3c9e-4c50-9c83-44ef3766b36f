@@ -2,14 +2,32 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../Admin/MoreInfo.css'
 import * as ReactBootStarp from 'react-bootstrap';
+import { useState } from 'react';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 function MoreInfo() {
     const usenavigate = useNavigate();
+
+    const [data,setData]=useState({});
+
+    React.useEffect(()=>{
+        fetchUserData().then((response)=>{
+            setData(response.data);
+        }).catch((e)=>{
+            localStorage.clear();
+           
+        })
+    },[])
+
     const logOut = () => {
         sessionStorage.clear()
         localStorage.clear();
         usenavigate('/');
 
+    }
+
+    const handleSubmit=(id)=>{
+        usenavigate("/user/enrolledCourse/"+id)
     }
 
     return (
@@ -25,7 +43,7 @@ function MoreInfo() {
                     <ReactBootStarp.Navbar.Collapse id="responsive-navbar-nav">
                         <ReactBootStarp.Nav className="me-auto">
                             <ReactBootStarp.Nav.Link href="/user/viewInstitute">Institute</ReactBootStarp.Nav.Link>
-                            <ReactBootStarp.Nav.Link href="/user/enrollCourse/:instituteid">Enrolled Courses</ReactBootStarp.Nav.Link>
+                            <ReactBootStarp.Nav.Link onClick={()=>handleSubmit(data.id)}>Enrolled Courses</ReactBootStarp.Nav.Link>
                             <ReactBootStarp.Nav.Link href="/user/news">News Feed</ReactBootStarp.Nav.Link>
                         </ReactBootStarp.Nav>
                         <ReactBootStarp.Nav>

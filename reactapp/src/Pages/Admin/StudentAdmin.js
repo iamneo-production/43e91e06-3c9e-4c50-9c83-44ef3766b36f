@@ -3,6 +3,8 @@ import * as ReactBootStarp from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import '../Style.css'
+import { useEffect } from 'react';
+import Service from './StudentServiceAdmin'
 
 
 
@@ -13,9 +15,42 @@ const MainWrapper = styled.div`
 
 export const StudentAdmin = (props) => {
     const usenavigate = useNavigate();
+    const [student, setStudent] = useState([])
+    const[query,setQuery]=useState('');
+
+
+    useEffect(() => {
+        getAllStudents();
+    }, [])
+
+    const getAllStudents = () => {
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/viewStudents")
+            .then(res => res.json())
+            .then((result) => {
+                setStudent(result)
+            }).catch(error => {
+                console.log(error);
+            })
+    }
+    const deleteStudentById = (studentid) => {
+        (
+            Service.deleteStudentById(studentid).then((response) => {
+                getAllStudents();
+                alert("The Student Deleted SucessFully")
+            }).catch(error => {
+                console.log(error);
+
+            })
+
+        )
+    }
+    function Update(studentid) {
+        console.log(studentid);
+        usenavigate('/admin/editStudent/' + studentid)
+    }
 
     const handleclick = () => {
-        usenavigate("/admin/addStudent");
+        usenavigate("/admin/addstudent");
     }
 
     const logOut = () => {
@@ -64,7 +99,7 @@ export const StudentAdmin = (props) => {
                             <button type="button" class="custom-btn btn-5" onClick={() => handleclick()}>Add Student</button>
                         </div>
                         <div class="searchbar">
-                            <input class="search_input" type="text" name="" placeholder="Search..." />
+                            <input class="search_input" type="text" name="" onChange={e => setQuery(e.target.value)} placeholder="Search..." />
                             <a class="search_icon"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
@@ -72,21 +107,51 @@ export const StudentAdmin = (props) => {
             </div>
 
 
-            <table id='userData' sx={{ minWidth: 700 }}>
-                <thead>
-                    <tr>
-                        <th scope='col'>Id</th>
-                        <th scope='col' >Name</th>
-                        <th scope='col'>Email Id</th>
-                        <th scope='col' >Enrolled Courses</th>
-                        <th scope='col' >Mobile Number </th>
-                        <th scope='col' >Action </th>
-                    </tr>
-                </thead>
-
-            </table>
 
             
+
+            <ReactBootStarp.Table striped bordered hover variant="dark">
+            <div>
+            
+            {
+                student.filter(student=>student.studentName.toLowerCase().includes(query)).map(student => (
+
+                    <div>
+                        <ReactBootStarp.Card>
+                            <ReactBootStarp.Card.Header className="gradient">Student Id : {student.id}</ReactBootStarp.Card.Header>
+                            <ReactBootStarp.Card.Body>
+                                <ReactBootStarp.Card.Title>Student Name: {student.studentName}</ReactBootStarp.Card.Title>
+                                <br/>
+                                <div>Course ID: {student.courseid}</div>
+                                <br/>
+                                <div>Enrolled Course: {student.coursename} </div>
+                                <br/>
+                                <div>Institute ID: {student.instituteid}</div>
+                                <br/>
+                                <div>Institute Name: {student.institutename} </div>
+                                <div>
+                                    <ReactBootStarp.Button variant="success" size="sl" type="submit" onClick={()=>Update(student.studentid)}>
+                                        Edit Admission
+                                    </ReactBootStarp.Button>
+                                    <ReactBootStarp.Button variant="danger" size="sl" type="submit" onClick={()=>deleteStudentById(student.studentid)}>
+                                        Delete Admission
+                                    </ReactBootStarp.Button>
+                                </div>
+                                
+                            </ReactBootStarp.Card.Body>
+                        </ReactBootStarp.Card>
+                    </div>
+                )
+                )
+            }
+        </div>
+    
+   
+  
+</ReactBootStarp.Table>
+           
+
+
 
 
 

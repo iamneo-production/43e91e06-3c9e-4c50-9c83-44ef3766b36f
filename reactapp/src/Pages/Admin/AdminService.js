@@ -9,6 +9,9 @@ class ViewService{
     addCourse(course){
         return axios.post(VIEW_BASE_REST_API_URL+'/addCourse'+course)
     }
+    getInstitutessById(instituteid){
+        return axios.get(VIEW_BASE_REST_API_URL+'/institute/'+instituteid)
+    }
     getCourseById(courseid){
         return axios.get(VIEW_BASE_REST_API_URL+'/'+courseid)
     }

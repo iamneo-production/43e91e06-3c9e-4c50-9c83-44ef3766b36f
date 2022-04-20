@@ -2,11 +2,22 @@ package com.example.demo.response;
 
 public class UserInfo {
 	
+	private long id;
 	private String email;
 	private String phonenumber;
 	private String username;
 	
 	private Object roles;
+	
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 
 	
 

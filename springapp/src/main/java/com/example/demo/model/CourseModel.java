@@ -22,6 +22,25 @@ public class CourseModel {
 	
 	private int courseDuration;
 	
+	private int instituteid;
+	
+	
+	
+	
+	
+	public CourseModel(int instituteid) {
+		super();
+		this.instituteid = instituteid;
+	}
+
+	public int getInstituteid() {
+		return instituteid;
+	}
+
+	public void setInstituteid(int instituteid) {
+		this.instituteid = instituteid;
+	}
+	
 	
 	
 
@@ -74,7 +93,7 @@ public class CourseModel {
 	@Override
 	public String toString() {
 		return "CourseModel [courseid=" + courseid + ", coursename=" + coursename + ", courseDescription="
-				+ courseDescription + ", courseDuration=" + courseDuration + ", ]";
+				+ courseDescription + ", courseDuration=" + courseDuration + ",instituteid=" + instituteid + "]";
 	}
 
 	

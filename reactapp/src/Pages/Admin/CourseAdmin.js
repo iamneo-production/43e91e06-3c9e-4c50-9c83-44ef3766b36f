@@ -81,7 +81,6 @@ function CourseAdmin() {
                         <ReactBootStarp.Nav>
                             <ReactBootStarp.NavDropdown className="gradient" title="More Info" id="collasible-nav-dropdown">
                                 <ReactBootStarp.NavDropdown.Item href="/admin/Profile">Profile</ReactBootStarp.NavDropdown.Item>
-                                <ReactBootStarp.NavDropdown.Item href="#action/3.2">Help&Support</ReactBootStarp.NavDropdown.Item>
                                 <ReactBootStarp.NavDropdown.Item href="/admin/moreinfo">About</ReactBootStarp.NavDropdown.Item>
                                 <ReactBootStarp.NavDropdown.Divider />
                                 <ReactBootStarp.NavDropdown.Item onClick={() => logOut()}>LogOut</ReactBootStarp.NavDropdown.Item>
@@ -121,6 +120,7 @@ function CourseAdmin() {
                                         <br></br>
                                         <div>Course Duration: {course.courseDuration} Years</div>
                                         <br/>
+                                        <div>Institute Id: {course.instituteid}</div>
                                         <button variant="success" class="custom-btn btn-5" onClick={() => Update(course.courseid)}>Update</button>
                                         <button  class="custom-btn btn-5 mv" variant="danger" onClick={() => deleteCourseById(course.courseid)}>
                                             Delete</button>

@@ -32,6 +32,12 @@ import SignupPageUserRed1 from './Pages/User/SignupPageUserRed1';
 import EditCourse from './Pages/Admin/EditCourse';
 import Mailer from './Pages/Admin/Mailer';
 import Redirect from './Pages/Admin/RedirectMailer';
+import EditInstitute from './Pages/Admin/EditInstitute';
+import EnrolledCourse from './Pages/User/EnrolledCourse';
+import Enrolldetail from './Pages/User/Enrolldetails';
+import EditEnroll from './Pages/User/EditEnroll';
+import StudentAdmission from './Pages/Admin/AddAdmissionStu'
+import EditStudentAdmin from './Pages/Admin/EditStudentAdmin';
 
 
 
@@ -65,17 +71,22 @@ function App() {
             <Route path="/admin/addInstitute" element={<AddInstituteAdmin/>}/>
             <Route path="/admin/addCourse" element={<AddCourseAdmin/>}/>
             <Route path="/admin/editCourse/:courseid" element={<EditCourse/>}/>
+            <Route path="/admin/editInstitute/:instituteid" element={<EditInstitute/>}/>
             <Route path="/admin/profile" element={<ProfileAdmin/>}/>
             <Route path="/admin/news" element={<NewsAdmin/>}/>
             <Route path="/admin/addStudent" element={<AddStudentAdmin/>}/>
             <Route path="/admin/studentadmin" element={<StudentAdmin/>}/>
             <Route path="/admin/moreinfo" element={<MoreInfoAdmin/>}/>
-
+            <Route path="/admin/addstudent" element={<StudentAdmission/>}/>
+            <Route path="/admin/editStudent/:studentid" element={<EditStudentAdmin/>}/>
 
           </Route>
 
           <Route element={<ProtectedRouteUser/>}>
-          <Route path="/user/enrollCourse/:instituteid" element={<EnrollCourse/>}/>  
+            <Route path="/user/enrollCourse/:instituteid/:institutename" element={<EnrollCourse/>}/>
+            <Route path="/user/enrolldetails/:coursename/:courseid/:instituteid/:institutename" element={<Enrolldetail/>}/>
+            <Route path="/user/enrolledCourse/:id" element={<EnrolledCourse/>}/> 
+            <Route path="/user/editEnroll/:studentid" element={<EditEnroll/>}/>
             <Route path="/user/dashboard" element={<DashboardUser/>}/>
             <Route path="/user/moreinfo" element={<MoreInfoUser/>}/>
             <Route path="/user/viewInstitute" element={<InstituteUser/>}/>

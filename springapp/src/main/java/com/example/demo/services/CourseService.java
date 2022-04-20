@@ -25,7 +25,10 @@ public class CourseService {
 		return (course.get());
 	}
 	
-	
+	public List<CourseModel> getInstituteById(int instituteid) {
+		List<CourseModel>institute = courserepository.findByInstituteid(instituteid);
+		return (institute);
+	}
 	
 	public CourseModel saveCourse(CourseModel course) {
 		return courserepository.save(course);
