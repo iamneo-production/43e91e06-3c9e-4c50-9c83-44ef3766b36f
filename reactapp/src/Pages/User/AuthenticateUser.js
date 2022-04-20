@@ -29,7 +29,7 @@ function AuthenticateUser(){
     const handleSubmit=(evt)=>{
         evt.preventDefault();
         if(localStorage){
-            localStorage.setItem("Assign",user)
+            localStorage.setItem("Assign","user")
             usenavigate('/user/dashboard');
         }
         
@@ -61,3 +61,4 @@ function AuthenticateUser(){
 }
 
 export default AuthenticateUser;
+

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './MoreInfo.css'
 import * as ReactBootStarp from 'react-bootstrap';
 import { fetchUserData } from '../../Api/AuthenticationService';
+import {useState} from 'react'
 
 function MoreInfo() {
     const usenavigate = useNavigate();
