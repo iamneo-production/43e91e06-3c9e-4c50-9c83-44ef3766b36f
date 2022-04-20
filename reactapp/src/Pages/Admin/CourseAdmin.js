@@ -4,6 +4,7 @@ import * as ReactBootStarp from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import '../Style.css'
 import AdminService from './AdminService';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 
 
@@ -55,6 +56,25 @@ function CourseAdmin() {
         usenavigate('/');
 
     }
+
+
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
 
 

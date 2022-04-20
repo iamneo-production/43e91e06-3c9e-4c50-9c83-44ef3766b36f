@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {useNavigate,useParams} from 'react-router-dom'
 import * as ReactBootStarp from 'react-bootstrap';
 import AcademyService from './AcademyService';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 
 const UpdateComponent=()=>{
@@ -38,7 +39,23 @@ const UpdateComponent=()=>{
         navigate('/');
 
     }
+    const [data, setData] = useState({});
 
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            navigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
     useEffect(()=>{
         AcademyService.getInstituteById(instituteid).then((response)=>{

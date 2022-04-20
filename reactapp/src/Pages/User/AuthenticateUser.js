@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import '../Style.css'
 
 
-export const getFakeLogin=()=>{
-    return( sessionStorage.getItem("loggedIn")==="user"?true:false)
+export const getTokenLogin=()=>{
+    if(localStorage){
+        return (localStorage.getItem("Assign")==="user"?true:false)
+    }
 }
 
 function AuthenticateUser(){
@@ -26,8 +28,11 @@ function AuthenticateUser(){
 
     const handleSubmit=(evt)=>{
         evt.preventDefault();
-        sessionStorage.setItem("loggedIn","user");
-        usenavigate('/user/dashboard');
+        if(localStorage){
+            localStorage.setItem("Assign",user)
+            usenavigate('/user/dashboard');
+        }
+        
     }
 
 

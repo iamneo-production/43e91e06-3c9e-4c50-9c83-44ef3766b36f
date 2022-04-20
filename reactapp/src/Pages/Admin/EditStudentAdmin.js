@@ -32,6 +32,13 @@ function Enrolldetail() {
         setId(data.id)
     })
 
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
     const handleSubmit=(id)=>{
         usenavigate("/admin/enrolledCourse/"+id)
     }

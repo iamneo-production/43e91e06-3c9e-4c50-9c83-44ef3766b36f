@@ -3,6 +3,8 @@ import * as ReactBootStarp from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import '../Style.css'
+import { useEffect } from 'react';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 
 
@@ -14,6 +16,23 @@ const MainWrapper = styled.div`
 export const AcademyAdmin = (props) => {
     const usenavigate = useNavigate();
 
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
     const logOut = () => {
         sessionStorage.clear()

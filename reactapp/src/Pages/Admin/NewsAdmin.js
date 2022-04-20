@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import * as ReactBootStarp from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -13,6 +13,13 @@ export const Dashboard=(props)=>{
     const usenavigate = useNavigate();
     
     const [data,setData]=useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
 
     React.useEffect(()=>{
         fetchUserData().then((response)=>{

@@ -2,6 +2,8 @@ import React from 'react'
 import * as ReactBootStarp from 'react-bootstrap';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import {useEffect} from 'react';
+import { fetchUserData } from '../../Api/AuthenticationService';
 
 function AddCourseAdmin() {
     const usenavigate = useNavigate()
@@ -30,6 +32,24 @@ function AddCourseAdmin() {
         usenavigate('/');
 
     }
+
+    const [data, setData] = useState({});
+
+    useEffect(()=>{
+        if(data.username==="undefined"){
+            localStorage.clear();
+            usenavigate('/')
+        }
+    },)
+
+    React.useEffect(() => {
+        fetchUserData().then((response) => {
+            setData(response.data);
+        }).catch((e) => {
+            localStorage.clear();
+
+        })
+    }, [])
 
 
 
