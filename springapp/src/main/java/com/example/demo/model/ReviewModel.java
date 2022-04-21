@@ -1,56 +1,73 @@
 package com.example.demo.model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-@Table(name= "review" )
+import org.hibernate.Hibernate;
+import javax.persistence.*;
+import java.util.Objects;
+
+@Table(name = "review")
 @Entity
 public class ReviewModel {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
 	private int review;
 
-	@ManyToMany(mappedBy = "reviewModels", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH})
-	private Set<CourseModel> courseModels = new LinkedHashSet<>();
-
-
-	@JsonIgnore
+	// @JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_user_id")
-	private User user;
+	@JoinColumn(name = "student_user_id")
+	private AdmissionModel student;
 
-	public User getUser() {
-		return user;
+	// @JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "course_model_id")
+	private CourseModel courseModel;
+
+	public CourseModel getCourseModel() {
+		return courseModel;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setCourseModel(CourseModel courseModel) {
+		this.courseModel = courseModel;
 	}
 
-	public Set<CourseModel> getCourseModels() {
-		return courseModels;
+	public AdmissionModel getStudent() {
+		return student;
 	}
 
-	public void setCourseModels(Set<CourseModel> courseModels) {
-		this.courseModels = courseModels;
+	public void setStudent(AdmissionModel student) {
+		this.student = student;
 	}
 
-
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
+
 	public int getReview() {
 		return review;
 	}
+
 	public void setReview(int review) {
 		this.review = review;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o))
+			return false;
+		ReviewModel that = (ReviewModel) o;
+		return id != 0 && Objects.equals(id, that.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
 }
-	

@@ -79,7 +79,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 								"/users/{username}", "/student/viewStudents", "/student/addStudent",
 								"/student/{studentid}", "/student/updateStudent/{studentid}",
 								"/student/particular/{id}",
-								"/users/update/{username}")
+								"/users/update/{username}",
+								"/review", "/review/course/{Course_id}/student/{student_id}", "/review/course/{id}",
+								"/review/{id}", "/review/Student/{id}", "/review/{id}/{review}"
+
+						)
 						.permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated())
 				.addFilterBefore(new JWTAuthenticationFilter(userservice, jwtTokenHelper),
 						UsernamePasswordAuthenticationFilter.class);

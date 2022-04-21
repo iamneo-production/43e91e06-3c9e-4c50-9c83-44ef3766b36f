@@ -1,46 +1,64 @@
 package com.example.demo.model;
 
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class AdmissionModel {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int studentid;
-	
+
 	private String studentName;
-	
+
 	private Date studentDoB;
-	
+
 	private String address;
-	
+
 	private String mobile;
-	
+
 	private int sslc;
-	
+
 	private int hsc;
-	
+
 	private int diploma;
-	
+
 	private String eligibility;
-	
+
 	private int instituteid;
-	
+
 	private String institutename;
-	
+
 	private int courseid;
-	
+
 	private String coursename;
-	
+
 	private long id;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<ReviewModel> reviewModels = new LinkedHashSet<>();
+
+	public Set<ReviewModel> getReviewModels() {
+		return reviewModels;
+	}
+
+	public void setReviewModels(Set<ReviewModel> reviewModels) {
+		this.reviewModels = reviewModels;
+	}
 
 	public int getStudentid() {
 		return studentid;
@@ -186,15 +204,5 @@ public class AdmissionModel {
 				+ diploma + ", eligibility=" + eligibility + ", instituteid=" + instituteid + ", institutename="
 				+ institutename + ", courseid=" + courseid + ", coursename=" + coursename + ", id=" + id + "]";
 	}
-
-	
-	
-	
-	
-	
-
-		
-	
-	
 
 }
