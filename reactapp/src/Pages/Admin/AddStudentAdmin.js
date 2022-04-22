@@ -6,7 +6,7 @@ import { fetchUserData } from '../../Api/AuthenticationService';
 
 
 export default function AddStudent() {
-    
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [gender, SetGender] = useState("");
@@ -16,10 +16,10 @@ export default function AddStudent() {
     const [age, setAge] = useState("");
     const [phoneNo, setMobileNo] = useState("");
     const [alternateMobileNo, setAlternateMobileNo] = useState("");
-    const [houseNo,sethouseNo] = useState("");
+    const [houseNo, sethouseNo] = useState("");
     const [streetName, setstreetName] = useState("");
     const [areaName, setareaName] = useState("");
-    const [dateOfBirth,setDateOfBirth] = useState("")
+    const [dateOfBirth, setDateOfBirth] = useState("")
     const [pincode, setpinCode] = useState("");
     const [state, setstate] = useState("");
     const [nationality, setNationality] = useState("");
@@ -27,12 +27,12 @@ export default function AddStudent() {
 
     const [data, setData] = useState({});
 
-    useEffect(()=>{
-        if(data.username==="undefined"){
+    useEffect(() => {
+        if (data.username === "undefined") {
             localStorage.clear();
             usenavigate('/')
         }
-    },)
+    })
 
     React.useEffect(() => {
         fetchUserData().then((response) => {
@@ -43,21 +43,21 @@ export default function AddStudent() {
         })
     }, [])
 
-    const handleClick=(e)=>{
+    const handleClick = (e) => {
         e.preventDefault()
-        const Student={firstName,lastName,gender,fatherName,phoneNo,alternateMobileNo,motherName,emailid,age,houseNo,streetName,areaName,pincode,state,nationality}
+        const Student = { firstName, lastName, gender, fatherName, phoneNo, alternateMobileNo, motherName, emailid, age, houseNo, streetName, areaName, pincode, state, nationality }
         console.log(Student)
-        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/addStudent" ,{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(Student)
-        }).then(()=>{
+        fetch("https://8080-fbcdaceafcabcebfebaaabdaccdcfbbafadbadfbba.examlyiopb.examly.io/student/addStudent", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Student)
+        }).then(() => {
             console.log("New Student Added")
             console.log(firstName);
         })
     }
 
-    
+
 
     const logOut = () => {
         sessionStorage.clear()
@@ -153,7 +153,7 @@ export default function AddStudent() {
                 </table>
     </div>*/}
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }} >
-                <button type="button" id="submit"  >Submit</button>
+                <button type="button" id="submit" onClick={() => handleClick()} >Submit</button>
                 <button type="button" id="cancle" onClick={() => usenavigate(-1)} >Cancle</button>
             </div>
         </div>
