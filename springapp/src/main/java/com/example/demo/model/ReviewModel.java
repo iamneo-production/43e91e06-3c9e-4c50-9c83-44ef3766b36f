@@ -14,6 +14,8 @@ public class ReviewModel {
 
 	private int review;
 
+	private String Comment;
+
 	// @JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "student_user_id")
@@ -54,6 +56,14 @@ public class ReviewModel {
 
 	public void setReview(int review) {
 		this.review = review;
+	}
+
+	public String getComment() {
+		return Comment;
+	}
+
+	public void setComment(String comment) {
+		Comment = comment;
 	}
 
 	@Override
